@@ -32,7 +32,7 @@ ResourceAssetResolver assetResolver = new ResourceAssetResolver(typeof(MyGame).A
 AssetManager assetManager = new AssetManager(GraphicsDevice, assetResolver);
 ```
 
-  * [TitleContainerAssetResolver](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/TitleContainerResolver.cs) that opens Stream using TitleContainer.OpenStream. Sample AssetManager creation code:
+  * [TitleContainerAssetResolver](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/TitleContainerAssetResolver.cs) that opens Stream using TitleContainer.OpenStream. Sample AssetManager creation code:
 ```c#
 TitleContainerAssetResolver assetResolver = new TitleContainerAssetResolver("Assets");
 AssetManager assetManager = new AssetManager(GraphicsDevice, assetResolver);
@@ -56,3 +56,4 @@ Texture2D|[Texture2DLoader](https://github.com/rds1983/XNAssets/blob/master/src/
 SpriteFont|[SpriteFontLoader](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/SpriteFontLoader.cs)|Font in AngelCode's BMFont .fnt format
 string|[StringLoader](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/StringLoader.cs)|Loads any resource as string
 SoundEffect|[SoundEffectLoader](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/SoundEffectLoader.cs)|SoundEffect in WAV format
+
