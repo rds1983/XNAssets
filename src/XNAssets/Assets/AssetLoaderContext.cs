@@ -22,6 +22,14 @@ namespace XNAssets.Assets
 			}
 		}
 
+		public AssetManagerSettings Settings
+		{
+			get
+			{
+				return _assetManager.Settings;
+			}
+		}
+
 		internal AssetLoaderContext(AssetManager assetManager, string baseFolder)
 		{
 			_assetManager = assetManager ?? throw new Exception("assetManager");

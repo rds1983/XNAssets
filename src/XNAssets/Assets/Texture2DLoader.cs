@@ -14,7 +14,7 @@ namespace XNAssets.Assets
 		{
 			using (var stream = context.Open(assetName))
 			{
-				return Texture2DExtensions.FromStream(context.GraphicsDevice, stream, true);
+				return Texture2DExtensions.FromStream(context.GraphicsDevice, stream, context.Settings.PremultiplyAlphaForTextures);
 			}
 		}
 	}

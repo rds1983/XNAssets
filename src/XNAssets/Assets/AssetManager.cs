@@ -17,6 +17,8 @@ namespace XNAssets.Assets
 		private readonly Dictionary<Type, Dictionary<string, object>> _cache = new Dictionary<Type, Dictionary<string, object>>();
 		private IAssetResolver _assetResolver;
 
+		public readonly AssetManagerSettings Settings = new AssetManagerSettings();
+
 		public IAssetResolver AssetResolver
 		{
 			get { return _assetResolver; }
