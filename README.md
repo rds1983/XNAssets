@@ -22,13 +22,13 @@ There are two ways of referencing XNAssets in the project:
 In order to create AssetManager two parameters must be passed to its constructor: GraphicsDevice and IAssetResolver. XNAAssets provides 3 implementation of latter:
   * FileAssetResolver that opens Stream using File.OpenRead. Sample AssetManager creation code:
 ```c#
-			FileAssetResolver assetResolver = new FileAssetResolver(Path.Combine(PathUtils.ExecutingAssemblyDirectory, "Assets"));
-			AssetManager assetManager = new AssetManager(GraphicsDevice, assetResolver);
+FileAssetResolver assetResolver = new FileAssetResolver(Path.Combine(PathUtils.ExecutingAssemblyDirectory, "Assets"));
+AssetManager assetManager = new AssetManager(GraphicsDevice, assetResolver);
 ```
 
   * ResourceAssetResolver that opens Stream using Assembly.GetManifestResourceStream. Sample AssetManager creation code:
 ```c#
-      AssetManager assetManager = new AssetManager(new ResourceAssetResolver(typeof(MyGame).Assembly, "Resources."));
+AssetManager assetManager = new AssetManager(new ResourceAssetResolver(typeof(MyGame).Assembly, "Resources."));
 ```
 
 
