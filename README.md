@@ -102,7 +102,7 @@ Then UserProfileLoader class should look like this:
     }
 ```
 
-Now it should be possible to load user profile like this:
+Now it should be possible to load user profile with following code:
 ```c#
   UserProfile userProfile = assetManager.Load<UserProfile>("profile.xml");
 ```  
