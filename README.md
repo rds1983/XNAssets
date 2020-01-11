@@ -104,5 +104,5 @@ Then UserProfileLoader class should look like this:
 
 Now it should be possible to load user profile like this:
 ```c#
-  var userProfile = assetManager.Load<UserProfile>("profile.xml");
+  UserProfile userProfile = assetManager.Load<UserProfile>("profile.xml");
 ```  
