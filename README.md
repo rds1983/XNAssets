@@ -19,7 +19,9 @@ There are two ways of referencing XNAssets in the project:
     d. Add XNAssets/src/XNAssets/XNAssets.csproj to the solution.
 
 # Creating AssetManager
-In order to create AssetManager two parameters must be passed to its constructor: GraphicsDevice and [IAssetResolver](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/IAssetResolver.cs). XNAAssets provides 3 implementation of latter:
+In order to create AssetManager two parameters must be passed to its constructor: GraphicsDevice and [IAssetResolver](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/IAssetResolver.cs). Latter is simple interface that opens asset stream by its name;
+
+XNAAssets provides 3 implementation of IAssetResolver:
   * [FileAssetResolver](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/FileAssetResolver.cs) that opens Stream using File.OpenRead. Sample AssetManager creation code:
 ```c#
 FileAssetResolver assetResolver = new FileAssetResolver(Path.Combine(PathUtils.ExecutingAssemblyDirectory, "Assets"));
