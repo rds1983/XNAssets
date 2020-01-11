@@ -19,20 +19,20 @@ There are two ways of referencing XNAssets in the project:
     d. Add XNAssets/src/XNAssets/XNAssets.csproj to the solution.
 
 # Creating AssetManager
-In order to create AssetManager two parameters must be passed to its constructor: GraphicsDevice and IAssetResolver. XNAAssets provides 3 implementation of latter:
-  * FileAssetResolver that opens Stream using File.OpenRead. Sample AssetManager creation code:
+In order to create AssetManager two parameters must be passed to its constructor: GraphicsDevice and [IAssetResolver](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/IAssetResolver.cs). XNAAssets provides 3 implementation of latter:
+  * [FileAssetResolver](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/FileAssetResolver.cs) that opens Stream using File.OpenRead. Sample AssetManager creation code:
 ```c#
 FileAssetResolver assetResolver = new FileAssetResolver(Path.Combine(PathUtils.ExecutingAssemblyDirectory, "Assets"));
 AssetManager assetManager = new AssetManager(GraphicsDevice, assetResolver);
 ```
 
-  * ResourceAssetResolver that opens Stream using Assembly.GetManifestResourceStream. Sample AssetManager creation code:
+  * [ResourceAssetResolver](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/ResourceAssetResolver.cs) that opens Stream using Assembly.GetManifestResourceStream. Sample AssetManager creation code:
 ```c#
 ResourceAssetResolver assetResolver = new ResourceAssetResolver(typeof(MyGame).Assembly, "Resources.");
 AssetManager assetManager = new AssetManager(GraphicsDevice, assetResolver);
 ```
 
-  * TitleContainerAssetResolver that opens Stream using TitleContainer.OpenStream. Sample AssetManager creation code:
+  * [TitleContainerAssetResolver](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/TitleContainerResolver.cs) that opens Stream using TitleContainer.OpenStream. Sample AssetManager creation code:
 ```c#
 TitleContainerAssetResolver assetResolver = new TitleContainerAssetResolver("Assets");
 AssetManager assetManager = new AssetManager(GraphicsDevice, assetResolver);
