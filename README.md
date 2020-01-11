@@ -61,6 +61,7 @@ SoundEffect|[SoundEffectLoader](https://github.com/rds1983/XNAssets/blob/master/
 
 # Custom Asset Types
 It is possible to make XNAssets use custom asset loaders by marking custom types with attribute AssetLoaderAttribute.
+
 I.e. following code makes it so UserProfile class will be loaded by UserProfileLoader:
 ```c#
     [AssetLoader(typeof(UserProfileLoader))]
