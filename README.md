@@ -49,6 +49,7 @@ Texture2D texture = assetManager.Load<Texture2D>("images/LogoOnly_64px.png");
 ```
 
 XNAssets allows to load following asset type out of the box:
+
 Type|AssetLoader Type|Description
 ----|----------------|-----------
 Texture2D|[Texture2DLoader](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/Texture2DLoader.cs)|Texture in BMP, TGA, PNG, JPG, GIF or PSD format. Alpha is being premultiplied after the loading
