@@ -99,7 +99,7 @@ Then UserProfileLoader class should look like this:
 
 			return result;
 		}
-    }
+	}
 ```
 
 Now it should be possible to load user profile with following code:
