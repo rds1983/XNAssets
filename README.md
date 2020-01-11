@@ -41,7 +41,7 @@ XNAAssets provides 3 implementation of IAssetResolver:
 ```
 
 # Loading Assets
-After AssetManager is created, it could be following way to load SpriteFont:
+After AssetManager is created, it could be used following way to load SpriteFont:
 ```c#
     SpriteFont font = assetManager.Load<SpriteFont>("fonts/arial64.fnt");
 ```
