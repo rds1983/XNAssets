@@ -28,7 +28,30 @@ AssetManager assetManager = new AssetManager(GraphicsDevice, assetResolver);
 
   * ResourceAssetResolver that opens Stream using Assembly.GetManifestResourceStream. Sample AssetManager creation code:
 ```c#
-AssetManager assetManager = new AssetManager(new ResourceAssetResolver(typeof(MyGame).Assembly, "Resources."));
+ResourceAssetResolver assetResolver = new ResourceAssetResolver(typeof(MyGame).Assembly, "Resources.");
+AssetManager assetManager = new AssetManager(GraphicsDevice, assetResolver);
 ```
 
+  * TitleContainerAssetResolver that opens Stream using TitleContainer.OpenStream. Sample AssetManager creation code:
+```c#
+TitleContainerAssetResolver assetResolver = new TitleContainerAssetResolver("Assets");
+AssetManager assetManager = new AssetManager(GraphicsDevice, assetResolver);
+```
 
+# Loading Assets
+After AssetManager is created, it could be following way to load SpriteFont:
+```c#
+SpriteFont font = assetManager.Load<SpriteFont>("fonts/arial64.fnt");
+```
+Or following way to load Texture2D:
+```c#
+Texture2D texture = assetManager.Load<Texture2D>("images/LogoOnly_64px.png");
+```
+
+XNAssets allows to load following asset type out of the box:
+Type|AssetLoader Type|Description
+----|----------------|-----------
+Texture2D|[Texture2DLoader](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/Texture2DLoader.cs)|Texture in BMP, TGA, PNG, JPG, GIF or PSD format. Alpha is being premultiplied after the loading
+SpriteFont|[SpriteFontLoader](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/SpriteFontLoader.cs)|Font in AngelCode's BMFont .fnt format
+string|[StringLoader](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/StringLoader.cs)|Loads any resource as string
+SoundEffect|[SoundEffectLoader](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/SoundEffectLoader.cs)|SoundEffect in WAV format
