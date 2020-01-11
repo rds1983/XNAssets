@@ -8,7 +8,7 @@ There are two ways of referencing XNAssets in the project:
 1. Through nuget(works only for MonoGame): `install-package XNAssets`
 2. As submodule(works for both MonoGame and FNA):
     
-    a. `git submodule add https://github.com/rds1983/XNAssetss.git`
+    a. `git submodule add https://github.com/rds1983/XNAssets.git`
     
     b. `git submodule update --init --recursive`
     
