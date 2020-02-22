@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace XNAssets.Assets
+namespace XNAssets
 {
 	[AttributeUsage(AttributeTargets.Interface | AttributeTargets.Class)]
 	public class AssetLoaderAttribute : Attribute

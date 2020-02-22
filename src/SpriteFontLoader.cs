@@ -7,7 +7,7 @@ using Xenko.Graphics;
 using Texture2D = Xenko.Graphics.Texture;
 #endif
 
-namespace XNAssets.Assets
+namespace XNAssets
 {
 	internal class SpriteFontLoader : IAssetLoader<SpriteFont>
 	{

@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Xenko.Graphics;
 #endif
 
-namespace XNAssets.Assets
+namespace XNAssets
 {
 	public class AssetManager: IAssetManager
 	{

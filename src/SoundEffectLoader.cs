@@ -2,7 +2,7 @@
 
 using Microsoft.Xna.Framework.Audio;
 
-namespace XNAssets.Assets
+namespace XNAssets
 {
 	internal class SoundEffectLoader: IAssetLoader<SoundEffect>
 	{

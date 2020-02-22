@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Texture2D = Xenko.Graphics.Texture;
 #endif
 
-namespace XNAssets.Assets
+namespace XNAssets
 {
 	internal class Texture2DLoader : IAssetLoader<Texture2D>
 	{

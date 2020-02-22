@@ -1,12 +1,20 @@
-﻿using System.IO;
+﻿#if !XENKO
 
-namespace XNAssets.Assets
+using System.IO;
+using Microsoft.Xna.Framework;
+
+namespace XNAssets
 {
-	public class FileAssetResolver : IAssetResolver
+	public class TitleContainerAssetResolver: IAssetResolver
 	{
 		public string BaseFolder { get; set; }
 
-		public FileAssetResolver(string baseFolder)
+		public TitleContainerAssetResolver()
+		{
+			BaseFolder = string.Empty;
+		}
+
+		public TitleContainerAssetResolver(string baseFolder)
 		{
 			BaseFolder = baseFolder;
 		}
@@ -18,12 +26,14 @@ namespace XNAssets.Assets
 				assetName = assetName.Replace(AssetManager.SeparatorSymbol, Path.DirectorySeparatorChar);
 			}
 
-			if (!Path.IsPathRooted(assetName) && !string.IsNullOrEmpty(BaseFolder))
+			if (!string.IsNullOrEmpty(BaseFolder))
 			{
 				assetName = Path.Combine(BaseFolder, assetName);
 			}
 
-			return File.OpenRead(assetName);
+			return TitleContainer.OpenStream(assetName);
 		}
 	}
 }
+
+#endif

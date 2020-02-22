@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
-using XNAssets.Assets;
+using XNAssets.Samples.Test;
 using XNAssets.Utility;
 
 namespace XNAssets.Samples.AssetManagement
@@ -13,6 +13,7 @@ namespace XNAssets.Samples.AssetManagement
 		private SpriteFont _font;
 		private Texture2D _texture;
 		private SpriteBatch _spriteBatch;
+		private UserProfile _userProfile;
 
 		public AssetManagementGame()
 		{
@@ -34,6 +35,8 @@ namespace XNAssets.Samples.AssetManagement
 
 			_font = AssetManager.Load<SpriteFont>("fonts/arial64.fnt");
 			_texture = AssetManager.Load<Texture2D>("images/LogoOnly_64px.png");
+
+			_userProfile = AssetManager.Load<UserProfile>("userProfile.xml");
 
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
 		}

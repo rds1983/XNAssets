@@ -1,4 +1,4 @@
-﻿namespace XNAssets.Assets
+﻿namespace XNAssets
 {
 	public class AssetManagerSettings
 	{

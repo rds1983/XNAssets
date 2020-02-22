@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace XNAssets.Assets
+namespace XNAssets
 {
 	public interface IAssetResolver
 	{

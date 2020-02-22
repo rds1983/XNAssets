@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Reflection;
 
-namespace XNAssets.Assets
+namespace XNAssets
 {
 	public class ResourceAssetResolver : IAssetResolver
 	{
