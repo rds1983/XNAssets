@@ -14,7 +14,7 @@ There are two ways of referencing XNAssets in the project:
     
     c. Add src/XNAssets.MonoGame.csproj or src/XNAssets.FNA.csproj to the solution.
     
-      * If FNA is used, then the folder structure is expected to be following: [[/images/FolderStructure.png]]
+      * If FNA is used, then the folder structure is expected to be following: ![Folder Structure](/images/FolderStructure.png)
     
 # Creating AssetManager
 In order to create AssetManager two parameters must be passed to its constructor: GraphicsDevice and [IAssetResolver](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/IAssetResolver.cs). Latter is simple interface that opens asset stream by its name.
