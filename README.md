@@ -14,7 +14,7 @@ There are two ways of referencing XNAssets in the project:
     
     c. Add src/XNAssets.MonoGame.csproj or src/XNAssets.FNA.csproj to the solution.
     
-      * If FNA is used, then folder structure is expected to have following view:
+      * If FNA is used, then the folder structure is expected to be following:
       ![](/images/FolderStructure.png)
     
 # Creating AssetManager
