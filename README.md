@@ -6,18 +6,17 @@ XNAssets is MonoGame/FNA asset management library that - unlike MonoGame Content
 # Adding Reference
 There are two ways of referencing XNAssets in the project:
 1. Through nuget(works only for MonoGame): https://www.nuget.org/packages/xnassets
-2. As submodule(works for both MonoGame and FNA):
+2. As repo(works for both MonoGame and FNA):
     
-    a. `git submodule add https://github.com/rds1983/XNAssets.git`
+    a. Clone this repo.
     
-    b. `git submodule update --init --recursive`
+    b. Execute `git submodule update --init --recursive` within XNAssets folder.
     
-    c. Copy SolutionDefines.targets from XNAssets/build/MonoGame(or XNAssets/build/FNA) to your solution folder.
-
-      * If FNA is used, SolutionDefines.targets needs to be edited and FNAProj variable should be updated to the location of FNA.csproj.
+    c. Add src/XNAssets.MonoGame.csproj or src/XNAssets.FNA.csproj to the solution.
     
-    d. Add XNAssets/src/XNAssets/XNAssets.csproj to the solution.
-
+      * If FNA is used, then folder structure is expected to have following view:
+      ![](/images/FolderStructure.png)
+    
 # Creating AssetManager
 In order to create AssetManager two parameters must be passed to its constructor: GraphicsDevice and [IAssetResolver](https://github.com/rds1983/XNAssets/blob/master/src/XNAssets/Assets/IAssetResolver.cs). Latter is simple interface that opens asset stream by its name.
 
