@@ -17,8 +17,8 @@ artifacts:
   - path: src/bin/MonoGame/Release/XNAssets.$(appveyor_build_version).nupkg
     name: XNAssets.nupkg
 
-  - path: src/bin/Xenko/Release/XNAssets.Xenko.$(appveyor_build_version).nupkg
-    name: XNAssets.Xenko.nupkg
+  - path: src/bin/Stride/Release/XNAssets.Stride.$(appveyor_build_version).nupkg
+    name: XNAssets.Stride.nupkg
 deploy:
   - provider: NuGet	
     api_key:
