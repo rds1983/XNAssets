@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 
-#if !XENKO
+#if !STRIDE
 using Microsoft.Xna.Framework.Graphics;
 #else
-using Xenko.Graphics;
+using Stride.Graphics;
 #endif
 
 namespace XNAssets

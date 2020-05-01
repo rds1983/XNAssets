@@ -1,9 +1,9 @@
-﻿#if !XENKO
+﻿#if !STRIDE
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 #else
-using Xenko.Graphics;
-using Texture2D = Xenko.Graphics.Texture;
+using Stride.Graphics;
+using Texture2D = Stride.Graphics.Texture;
 #endif
 
 namespace XNAssets.Utility
@@ -12,7 +12,7 @@ namespace XNAssets.Utility
 	{
 		public static Texture2D CreateTexture2D(GraphicsDevice graphicsDevice, int width, int height, byte[] data)
 		{
-#if !XENKO
+#if !STRIDE
 			var result = new Texture2D(graphicsDevice, width, height, false, SurfaceFormat.Color);
 			result.SetData(data);
 			return result;

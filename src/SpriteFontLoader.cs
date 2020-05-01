@@ -1,10 +1,10 @@
 ﻿using SpriteFontPlus;
 
-#if !XENKO
+#if !STRIDE
 using Microsoft.Xna.Framework.Graphics;
 #else
-using Xenko.Graphics;
-using Texture2D = Xenko.Graphics.Texture;
+using Stride.Graphics;
+using Texture2D = Stride.Graphics.Texture;
 #endif
 
 namespace XNAssets

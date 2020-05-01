@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-#if !XENKO
+#if !STRIDE
 using Microsoft.Xna.Framework.Graphics;
 #else
-using Xenko.Graphics;
+using Stride.Graphics;
 #endif
 
 namespace XNAssets
@@ -71,7 +71,7 @@ namespace XNAssets
 
 		private static void RegisterDefaultLoaders()
 		{
-#if !XENKO
+#if !STRIDE
 			SetAssetLoader(new SoundEffectLoader());
 #endif
 			SetAssetLoader(new StringLoader());

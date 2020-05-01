@@ -10,11 +10,11 @@
     <RootNamespace>XNAssets</RootNamespace>
     <Version>1.0.0.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <DefineConstants>TRACE;STBSHARP_INTERNAL;XENKO</DefineConstants>
+    <DefineConstants>TRACE;STBSHARP_INTERNAL;STRIDE</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>XNAssets.Xenko</PackageId>
-    <OutputPath>bin\Xenko\$(Configuration)</OutputPath>
+    <PackageId>XNAssets.Stride</PackageId>
+    <OutputPath>bin\Stride\$(Configuration)</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,7 +23,7 @@
   </ItemGroup>  
 
   <ItemGroup>
-    <PackageReference Include="Xenko.Engine" Version="3.1.0.1-beta01-0396" PrivateAssets="contentfiles;analyzers" />
-    <PackageReference Include="Xenko.Core" Version="3.1.0.1-beta01-0396" PrivateAssets="contentfiles;analyzers" />
+	<PackageReference Include="Stride.Engine" Version="4.0.0.1-beta02-0926" />
+	<PackageReference Include="Stride.Core" Version="4.0.0.1-beta02-0926" />
   </ItemGroup>  
 </Project>

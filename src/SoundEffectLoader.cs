@@ -1,4 +1,4 @@
-﻿#if !XENKO
+﻿#if !STRIDE
 
 using Microsoft.Xna.Framework.Audio;
 

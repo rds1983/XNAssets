@@ -1,4 +1,4 @@
-﻿#if !XENKO
+﻿#if !STRIDE
 
 using System.IO;
 using Microsoft.Xna.Framework;
