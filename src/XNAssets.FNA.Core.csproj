@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Authors>XNAssetsTeam</Authors>
+    <Product>XNAssets</Product>
+    <Description>Alternative to MonoGame Content Pipeline that loads raw assets</Description>
+    <PackageLicenseUrl>https://en.wikipedia.org/wiki/MIT_License</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/rds1983/XNAssets</PackageProjectUrl>
+    <NoWarn>NU1701</NoWarn>
+    <AssemblyName>XNAssets</AssemblyName>
+    <RootNamespace>XNAssets</RootNamespace>
+    <Version>1.0.0.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <DefineConstants>TRACE;STBSHARP_INTERNAL;FNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>XNAssets.FNA</PackageId>
+    <OutputPath>bin\FNA.Core\$(Configuration)</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\deps\BMFontToSpriteFont\**\*.cs" LinkBase="ThirdParty\BMFontToSpriteFont" />
+    <Compile Include="..\deps\StbImageSharp\src\**\*.cs" LinkBase="ThirdParty\StbImageSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FNA\FNA.Core.csproj" />
+  </ItemGroup>  
+</Project>
