@@ -75,6 +75,7 @@ namespace XNAssets
 			SetAssetLoader(new SoundEffectLoader());
 #endif
 			SetAssetLoader(new StringLoader());
+			SetAssetLoader(new ByteArrayLoader());
 			SetAssetLoader(new Texture2DLoader());
 			SetAssetLoader(new SpriteFontLoader());
 		}

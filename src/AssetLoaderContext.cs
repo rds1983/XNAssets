@@ -66,6 +66,21 @@ namespace XNAssets
 			return result;
 		}
 
+		/// <summary>
+		/// Reads specified asset to string
+		/// </summary>
+		/// <param name="path"></param>
+		/// <returns></returns>
+		public byte[] ReadAsByteArray(string path)
+		{
+			using (var input = Open(path))
+			using (var ms = new MemoryStream())
+			{
+				input.CopyTo(ms);
+				return ms.ToArray();
+			}
+		}
+
 		public T Load<T>(string assetName)
 		{
 			return _assetManager.Load<T>(AssetManager.CombinePath(_baseFolder, assetName));
