@@ -19,7 +19,11 @@
 
   <ItemGroup>
     <Compile Include="..\deps\BMFontToSpriteFont\**\*.cs" LinkBase="ThirdParty\BMFontToSpriteFont" />
-    <Compile Include="..\deps\StbImageSharp\src\**\*.cs" LinkBase="ThirdParty\StbImageSharp" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Cyotek.Drawing.BitmapFont" Version="2.0.0" />
+    <PackageReference Include="StbImageSharp" Version="2.22.4" />
   </ItemGroup>
 
   <ItemGroup>
