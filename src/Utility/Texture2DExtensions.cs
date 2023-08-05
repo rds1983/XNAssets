@@ -12,22 +12,6 @@ namespace XNAssets.Utility
 {
 	internal static class Texture2DExtensions
 	{
-		private static byte ApplyAlpha(byte color, byte alpha)
-		{
-			var fc = color / 255.0f;
-			var fa = alpha / 255.0f;
-			var fr = (int)(255.0f * fc * fa);
-			if (fr < 0)
-			{
-				fr = 0;
-			}
-			if (fr > 255)
-			{
-				fr = 255;
-			}
-			return (byte)fr;
-		}
-
 		/// <summary>
 		/// Creates a Texture2D from Stream and optionally premultiplies alpha
 		/// </summary>
@@ -60,12 +44,13 @@ namespace XNAssets.Utility
 			{
 				fixed (byte* b = &result.Data[0])
 				{
-					for (var i = 0; i < result.Data.Length; i += 4)
+					byte* ptr = b;
+					for (var i = 0; i < result.Data.Length; i += 4, ptr += 4)
 					{
-						var a = b[i + 3];
-						b[i] = ApplyAlpha(b[i], a);
-						b[i + 1] = ApplyAlpha(b[i + 1], a);
-						b[i + 2] = ApplyAlpha(b[i + 2], a);
+						var falpha = ptr[3] / 255.0f;
+						ptr[0] = (byte)(ptr[0] * falpha);
+						ptr[1] = (byte)(ptr[1] * falpha);
+						ptr[2] = (byte)(ptr[2] * falpha);
 					}
 				}
 			}
