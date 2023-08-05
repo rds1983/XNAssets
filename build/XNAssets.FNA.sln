@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2036
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{D17FD092-A553-4770-A7A5-822661193436}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNAssets.FNA", "..\src\XNAssets.FNA.csproj", "{FD1675BF-03EE-4AFD-BFAA-41FD0B62D0DB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNAssets.Samples.Test.FNA", "..\samples\XNAssets.Samples.Test\XNAssets.Samples.Test.FNA.csproj", "{A31C3656-84C2-4206-97D7-6945391CC3AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssetManagementBase", "..\..\AssetManagementBase\src\AssetManagementBase.csproj", "{92B938C5-5CC3-4619-A27A-0AAD35E8430D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,18 @@ Global
 		{A31C3656-84C2-4206-97D7-6945391CC3AE}.Release|x64.Build.0 = Release|Any CPU
 		{A31C3656-84C2-4206-97D7-6945391CC3AE}.Release|x86.ActiveCfg = Release|Any CPU
 		{A31C3656-84C2-4206-97D7-6945391CC3AE}.Release|x86.Build.0 = Release|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Debug|x64.Build.0 = Debug|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Debug|x86.Build.0 = Debug|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Release|x64.ActiveCfg = Release|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Release|x64.Build.0 = Release|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Release|x86.ActiveCfg = Release|Any CPU
+		{92B938C5-5CC3-4619-A27A-0AAD35E8430D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

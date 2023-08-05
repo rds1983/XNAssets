@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>XNAssets.FNA</PackageId>
+    <AssemblyName>XNAssets.FNA</AssemblyName>
+    <DefineConstants>$(DefineConstants);FNA</DefineConstants>
+    <OutputPath>bin\FNA.Core\$(Configuration)</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>	
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="StbImageSharp" Version="2.27.13" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\AssetManagementBase\src\AssetManagementBase.csproj" />
+    <ProjectReference Include="..\..\..\FNA\FNA.Core.csproj" />
+  </ItemGroup>  
+</Project>

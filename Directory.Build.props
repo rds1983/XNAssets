@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <Authors>XNAssetsTeam</Authors>
+    <Product>XNAssets</Product>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/rds1983/XNAssets</PackageProjectUrl>
+    <Description>Alternative to MonoGame Content Pipeline that loads raw assets</Description>
+    <RootNamespace>XNAssets</RootNamespace>
+    <Version>0.6.0</Version>
+    <AssetManagementBaseVersion>0.6.0</AssetManagementBaseVersion>
+    <CyotekDrawingBitmapFontVersion>2.0.4</CyotekDrawingBitmapFontVersion>
+    <MonoGameVersion>3.8.1.303</MonoGameVersion>
+  </PropertyGroup>
+</Project>

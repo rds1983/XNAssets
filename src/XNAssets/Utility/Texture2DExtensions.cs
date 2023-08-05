@@ -10,7 +10,7 @@ using Texture2D = Stride.Graphics.Texture;
 
 namespace XNAssets.Utility
 {
-	public static class Texture2DExtensions
+	internal static class Texture2DExtensions
 	{
 		private static byte ApplyAlpha(byte color, byte alpha)
 		{
