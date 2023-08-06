@@ -24,18 +24,18 @@ namespace AssetManagementBase
 			}
 		}
 
-		private static AssetLoader<SoundEffect> _soundEffectLoader = (assetManager, assetName, settings) =>
+		private static AssetLoader<SoundEffect> _soundEffectLoader = (context) =>
 		{
-			using (var stream = assetManager.OpenAsset(assetName))
+			using (var stream = context.DataStreamOpener())
 			{
 				return SoundEffect.FromStream(stream);
 			}
 		};
 
-		private static AssetLoader<Texture2D> _textureLoader = (assetManager, assetName, settings) =>
+		private static AssetLoader<Texture2D> _textureLoader = (context) =>
 		{
-			var textureLoadingSettings = (Texture2DLoadingSettings)settings;
-			using (var stream = assetManager.OpenAsset(assetName))
+			var textureLoadingSettings = (Texture2DLoadingSettings)context.Settings;
+			using (var stream = context.DataStreamOpener())
 			{
 				return Texture2DExtensions.FromStream(textureLoadingSettings.GraphicsDevice, stream, textureLoadingSettings.PremultiplyAlpha);
 			}
