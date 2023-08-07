@@ -7,6 +7,10 @@
     <OutputPath>bin\Stride\$(Configuration)</OutputPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>	
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="XNAssetsExt.Effect.cs" />
+    <Compile Remove="XNAssetsExt.SoundEffect.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AssetManagementBase" Version="0.6.0" />

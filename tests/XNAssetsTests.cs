@@ -1,6 +1,7 @@
 ﻿using AssetManagementBase;
 using Microsoft.Xna.Framework;
 using NUnit.Framework;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -11,7 +12,9 @@ namespace XNAssets.Tests
 	{
 		private static readonly Assembly _assembly = typeof(XNAssetsTests).Assembly;
 
-		private void TestLoadImage(AssetManager assetManager)
+		private static AssetManager CreateResourceAssetManager() => AssetManager.CreateResourceAssetManager(_assembly, "Resources");
+
+		private static void TestLoadImage(AssetManager assetManager)
 		{
 			string imageName = "LogoOnly_64px.png";
 
@@ -54,7 +57,7 @@ namespace XNAssets.Tests
 		[Test]
 		public void TestLoadImageResource()
 		{
-			var assetManager = AssetManager.CreateResourceAssetManager(_assembly, "Resources");
+			var assetManager = CreateResourceAssetManager();
 			TestLoadImage(assetManager);
 		}
 
@@ -63,6 +66,22 @@ namespace XNAssets.Tests
 		{
 			var assetManager = AssetManager.CreateFileAssetManager(Path.Combine(Utility.ExecutingAssemblyDirectory, "Resources"));
 			TestLoadImage(assetManager);
+		}
+
+		[Test]
+		public void TestLoadEffects()
+		{
+			var assetManager = CreateResourceAssetManager();
+
+			var effect = assetManager.LoadEffect(TestsEnvironment.GraphicsDevice, "DefaultEffect.efb");
+			Assert.AreEqual(effect.Parameters.Count, 5);
+
+			effect = assetManager.LoadEffect(TestsEnvironment.GraphicsDevice, "DefaultEffect.efb", new Dictionary<string, string>()
+			{
+				["BONES"] = "4",
+				["LIGHTNING"] = "1"
+			});
+			Assert.AreEqual(effect.Parameters.Count, 7);
 		}
 	}
 }
