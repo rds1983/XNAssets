@@ -10,9 +10,7 @@ namespace XNAssets
 {
 	public class TestGame : Game
 	{
-#if !STRIDE
 		private readonly GraphicsDeviceManager _graphics;
-#endif
 		private AssetManager _assetManager;
 		private SpriteBatch _spriteBatch;
 		private SpriteFont _spriteFont;
