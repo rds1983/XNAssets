@@ -1,18 +1,18 @@
-# XNAssets
+## XNAssets
 [![NuGet](https://img.shields.io/nuget/v/XNAssets.svg)](https://www.nuget.org/packages/XNAssets/) [![Chat](https://img.shields.io/discord/628186029488340992.svg)](https://discord.gg/ZeHxhCY)
 
-XNAssets is MonoGame/FNA asset management library that - unlike MonoGame Content Pipeline - loads raw assets.
+XNAssets is an alternative to MonoGame Content Pipeline that loads raw assets.
 
-# Adding Reference
-## For MonoGame
+## Adding Reference
+### For MonoGame
 https://www.nuget.org/packages/XNAssets.MonoGame/
 
-## For FNA
+### For FNA
 1. Clone this repo.
 2. Add src/XNAssets.FNA.csproj or src/XNAssets.FNA.Core.csproj to the solution.
 3. The overall folder structure is expected to be following: ![Folder Structure](/images/FolderStructure.png)
 
-# Creating AssetManager
+## Creating AssetManager
 Creating AssetManager that loads files:
 ```c#
 AssetManager assetManager = AssetManager.CreateFileAssetManager(@"c:\MyGame\Assets");
@@ -28,7 +28,8 @@ If we don't the assembly's name prepended to the prefix, then pass 'false' as th
 ```c#
 AssetManager assetManager = AssetManager.CreateResourceAssetManager(_assembly, "Full.Path.Resources", false);
 ```
-# Loading Assets
+
+## Loading Assets
 After AssetManager is created, it could be used following way to load SpriteFont:
 ```c#
     SpriteFont font = assetManager.LoadSpriteFont(graphicsDevice, "fonts/arial64.fnt");
@@ -47,5 +48,5 @@ SpriteFont|LoadSpriteFont|Font in AngelCode's BMFont .fnt format
 SoundEffect|LoadSoundEffect|SoundEffect in WAV format
 Effect|LoadEffect|Effect in binary form
 
-# Custom Asset Types
+## Custom Asset Types
 See [AssetManagementBase documentation](https://github.com/rds1983/AssetManagementBase) in order to learn how to add custom asset types.
