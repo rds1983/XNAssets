@@ -1,7 +1,13 @@
 ﻿using System;
+using XNAssets.Utility;
+
+#if !STRIDE
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
-using XNAssets.Utility;
+#else
+using Stride.Graphics;
+using Texture2D = Stride.Graphics.Texture;
+#endif
 
 namespace AssetManagementBase
 {
@@ -24,6 +30,7 @@ namespace AssetManagementBase
 			}
 		}
 
+#if !STRIDE
 		private static AssetLoader<SoundEffect> _soundEffectLoader = (context) =>
 		{
 			using (var stream = context.DataStreamOpener())
@@ -31,6 +38,7 @@ namespace AssetManagementBase
 				return SoundEffect.FromStream(stream);
 			}
 		};
+#endif
 
 		private static AssetLoader<Texture2D> _textureLoader = (context) =>
 		{
@@ -41,7 +49,10 @@ namespace AssetManagementBase
 			}
 		};
 
+#if !STRIDE
 		public static SoundEffect LoadSoundEffect(this AssetManager assetManager, string assetName) => assetManager.UseLoader(_soundEffectLoader, assetName);
+#endif
+
 		public static Texture2D LoadTexture2D(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName, bool premultiplyAlpha = false)
 		{
 			return assetManager.UseLoader(_textureLoader, assetName, new Texture2DLoadingSettings(graphicsDevice)

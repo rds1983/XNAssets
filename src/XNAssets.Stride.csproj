@@ -1,30 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Authors>XNAssetsTeam</Authors>
-    <Product>XNAssets</Product>
-    <Description>Alternative to MonoGame Content Pipeline that loads raw assets</Description>
-    <PackageLicenseUrl>https://en.wikipedia.org/wiki/MIT_License</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/rds1983/XNAssets</PackageProjectUrl>
-    <NoWarn>NU1701</NoWarn>
-    <AssemblyName>XNAssets</AssemblyName>
-    <RootNamespace>XNAssets</RootNamespace>
-    <Version>1.0.0.0</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <DefineConstants>TRACE;STBSHARP_INTERNAL;STRIDE</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageId>XNAssets.Stride</PackageId>
+    <AssemblyName>XNAssets.Stride</AssemblyName>
+    <DefineConstants>$(DefineConstants);STRIDE</DefineConstants>
     <OutputPath>bin\Stride\$(Configuration)</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>	
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\deps\BMFontToSpriteFont\**\*.cs" LinkBase="ThirdParty\BMFontToSpriteFont" />
-  </ItemGroup>  
-
-  <ItemGroup>
-    <PackageReference Include="Cyotek.Drawing.BitmapFont" Version="2.0.0" />
-    <PackageReference Include="StbImageSharp" Version="2.22.4" />
-	<PackageReference Include="Stride.Engine" Version="4.0.0.1-beta02-0926" />
-	<PackageReference Include="Stride.Core" Version="4.0.0.1-beta02-0926" />
-  </ItemGroup>  
+    <PackageReference Include="AssetManagementBase" Version="0.6.0" />
+    <PackageReference Include="StbImageSharp" Version="2.27.13" />
+    <PackageReference Include="Stride.Engine" Version="4.1.0.1838" />
+  </ItemGroup>
 </Project>
