@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNAssets.MonoGame", "..\src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNAssets.Tests", "..\tests\XNAssets.Tests.csproj", "{68B40277-AD62-4432-945D-D19EA9FA89F3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNAssets.Samples.Test.MonoGame", "..\samples\XNAssets.Samples.Test\XNAssets.Samples.Test.MonoGame.csproj", "{62BF129F-A4F8-4351-840C-5827F2843135}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{68B40277-AD62-4432-945D-D19EA9FA89F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68B40277-AD62-4432-945D-D19EA9FA89F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68B40277-AD62-4432-945D-D19EA9FA89F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62BF129F-A4F8-4351-840C-5827F2843135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62BF129F-A4F8-4351-840C-5827F2843135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62BF129F-A4F8-4351-840C-5827F2843135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62BF129F-A4F8-4351-840C-5827F2843135}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

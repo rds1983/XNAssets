@@ -29,7 +29,7 @@ namespace AssetManagementBase
 			}
 		}
 
-		private static AssetLoader<Texture2D> _textureLoader = (context) =>
+		private static AssetLoader<Texture2D> _textureLoader = context =>
 		{
 			var textureLoadingSettings = (Texture2DLoadingSettings)context.Settings;
 			using (var stream = context.DataStreamOpener())

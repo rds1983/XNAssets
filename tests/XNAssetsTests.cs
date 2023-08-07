@@ -33,7 +33,7 @@ namespace XNAssets.Tests
 			var dataNonPremultiplied = new Color[texturePremultiplied.Width * texturePremultiplied.Height];
 			textureNonPremultiplied.GetData(dataNonPremultiplied);
 
-			for(var i = 0; i < dataPremultiplied.Length; i++)
+			for (var i = 0; i < dataPremultiplied.Length; i++)
 			{
 				var c1 = dataPremultiplied[i];
 				var c2 = dataNonPremultiplied[i];
@@ -82,6 +82,14 @@ namespace XNAssets.Tests
 				["LIGHTNING"] = "1"
 			});
 			Assert.AreEqual(effect.Parameters.Count, 7);
+		}
+
+		[Test]
+		public void TestLoadSpriteFont()
+		{
+			var assetManager = CreateResourceAssetManager();
+			var font = assetManager.LoadSpriteFont(TestsEnvironment.GraphicsDevice, "arial64.fnt");
+			Assert.AreEqual(font.Characters.Count, 191);
 		}
 	}
 }

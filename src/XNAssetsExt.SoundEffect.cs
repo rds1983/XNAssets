@@ -4,7 +4,7 @@ namespace AssetManagementBase
 {
 	partial class XNAssetsExt
 	{
-		private static AssetLoader<SoundEffect> _soundEffectLoader = (context) =>
+		private static AssetLoader<SoundEffect> _soundEffectLoader = context =>
 		{
 			using (var stream = context.DataStreamOpener())
 			{
