@@ -23,5 +23,5 @@ jobs:
       run: dotnet test build/XNAssets.MonoGame.sln
     - name: Install NuGet
       uses: NuGet/setup-nuget@v1
-    - name: Publish AssetManagementBase to NuGet
-      run: nuget.exe push src\bin\Release\AssetManagementBase.*.nupkg ${{secrets.NUGET_APIKEY}} -Source https://api.nuget.org/v3/index.json
+    - name: Publish XNAssets to NuGet
+      run: nuget.exe push src\bin\Release\XNAssets.*.nupkg ${{secrets.NUGET_APIKEY}} -Source https://api.nuget.org/v3/index.json
