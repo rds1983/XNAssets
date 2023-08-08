@@ -126,10 +126,10 @@ internal static class FSSLoaders
 Now it would be possible to load FontSystem through following code:
 ```c#
 FontSystem fs = assetManager.LoadFontSystem("arial.ttf");
-```c#
+```
 
 Or StaticSpriteFont through:
-```
+```c#
 StaticSpriteFont ssf = assetManager.LoadStaticSpriteFont(graphicsDevice, "arial.fnt");
 ```
 
