@@ -22,7 +22,7 @@ Creating AssetManager that loads resources:
 ```c#
 AssetManager assetManager = AssetManager.CreateResourceAssetManager(_assembly, "Resources");
 ```
-If _assembly's name is "Assembly.Name" then the above code will create AssetManager that loads resourcies with prefix "Assembly.Name.Prefix.".
+If _assembly's name is "Assembly.Name" then the above code will create AssetManager that loads resources with prefix "Assembly.Name.Prefix.".
 
 If we don't the assembly's name prepended to the prefix, then pass 'false' as the third param when calling CreateResourceAssetManager. I.e.
 ```c#
@@ -43,7 +43,7 @@ XNAssets allows to load following asset types out of the box:
 
 Type|Method Name|Description
 ----|-----------|-----------
-Texture2D|LoadTexture2D|Texture in BMP, TGA, PNG, JPG, GIF or PSD format. There's parameter that determines whether the alpha should be premultiplied
+Texture2D|LoadTexture2D|Texture in BMP, TGA, PNG, JPG, GIF or PSD format. There's optional parameter that determines whether the alpha should be premultiplied
 SpriteFont|LoadSpriteFont|Font in AngelCode's BMFont .fnt format
 SoundEffect|LoadSoundEffect|SoundEffect in WAV format
 Effect|LoadEffect|Effect in binary form
