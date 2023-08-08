@@ -1,7 +1,7 @@
 ## XNAssets
 [![NuGet](https://img.shields.io/nuget/v/XNAssets.Monogame.svg)](https://www.nuget.org/packages/XNAssets.Monogame/) [![Chat](https://img.shields.io/discord/628186029488340992.svg)](https://discord.gg/ZeHxhCY)
 
-XNAssets is an alternative to MonoGame Content Pipeline that loads raw assets.
+XNAssets is the asset management library for Monogame/FNA. Unline Content Pipeline, it loads raw assets.
 
 ## Adding Reference
 ### For MonoGame
@@ -48,5 +48,90 @@ SpriteFont|LoadSpriteFont|Font in AngelCode's BMFont .fnt format
 SoundEffect|LoadSoundEffect|SoundEffect in WAV format
 Effect|LoadEffect|Effect in binary form
 
-## Custom Asset Types
-See [AssetManagementBase documentation](https://github.com/rds1983/AssetManagementBase) in order to learn how to add custom asset types.
+## FontStashSharp Support
+If you're using [FontStashSharp](https://github.com/FontStashSharp/FontStashSharp), then following code snippet will allow to load FontSystems and StaticSpriteFonts through XNAssets:
+```c#
+internal static class FSSLoaders
+{
+    private class FontSystemLoadingSettings
+    {
+        public Texture2D ExistingTexture { get; set; }
+        public Rectangle ExistingTextureUsedSpace { get; set; }
+        public string[] AdditionalFonts { get; set; }
+    }
+
+    private static AssetLoader<FontSystem> _fontSystemLoader = (context) =>
+    {
+        var fontSystemSettings = new FontSystemSettings();
+
+        var fontSystemLoadingSettings = (FontSystemLoadingSettings)context.Settings;
+        if (fontSystemLoadingSettings != null)
+        {
+            fontSystemSettings.ExistingTexture = fontSystemLoadingSettings.ExistingTexture;
+            fontSystemSettings.ExistingTextureUsedSpace = fontSystemLoadingSettings.ExistingTextureUsedSpace;
+        };
+
+        var fontSystem = new FontSystem(fontSystemSettings);
+        var data = context.ReadAssetAsByteArray();
+        fontSystem.AddFont(data);
+        if (fontSystemLoadingSettings != null && fontSystemLoadingSettings.AdditionalFonts != null)
+        {
+            foreach (var file in fontSystemLoadingSettings.AdditionalFonts)
+            {
+                data = context.Manager.LoadByteArray(file, false);
+                fontSystem.AddFont(data);
+            }
+        }
+
+        return fontSystem;
+    };
+
+    private static AssetLoader<StaticSpriteFont> _staticFontLoader = (context) =>
+    {
+        var fontData = context.ReadDataAsString();
+        var graphicsDevice = (GraphicsDevice)context.Settings;
+
+        return StaticSpriteFont.FromBMFont(fontData,
+                    name =>
+                    {
+                        var imageData = context.Manager.LoadByteArray(name, false);
+                        return new MemoryStream(imageData);
+                    },
+                    graphicsDevice);
+    };
+
+    public static FontSystem LoadFontSystem(this AssetManager assetManager, string assetName, string[] additionalFonts = null, Texture2D existingTexture = null, Rectangle existingTextureUsedSpace = default(Rectangle))
+    {
+        FontSystemLoadingSettings settings = null;
+        if (additionalFonts != null || existingTexture != null)
+        {
+            settings = new FontSystemLoadingSettings
+            {
+                AdditionalFonts = additionalFonts,
+                ExistingTexture = existingTexture,
+                ExistingTextureUsedSpace = existingTextureUsedSpace
+            };
+        }
+
+        return assetManager.UseLoader(_fontSystemLoader, assetName, settings);
+    }
+
+    public static StaticSpriteFont LoadStaticSpriteFont(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName)
+    {
+        return assetManager.UseLoader(_staticFontLoader, assetName, graphicsDevice);
+    }
+}
+```
+
+Now it would be possible to load FontSystem through following code:
+```
+FontSystem fs = assetManager.LoadFontSystem("arial.ttf");
+```
+
+Or StaticSpriteFont through:
+```
+StaticSpriteFont ssf = assetManager.LoadStaticSpriteFont(graphicsDevice, "arial.fnt");
+```
+
+## Additional Documentation
+See [AssetManagementBase documentation](https://github.com/rds1983/AssetManagementBase) if you want to learn more(i.e. how to add additional loader methods).
