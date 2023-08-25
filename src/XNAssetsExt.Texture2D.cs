@@ -29,10 +29,10 @@ namespace AssetManagementBase
 			}
 		}
 
-		private static AssetLoader<Texture2D> _textureLoader = context =>
+		private static AssetLoader<Texture2D> _textureLoader = (manager, assetName, settings) =>
 		{
-			var textureLoadingSettings = (Texture2DLoadingSettings)context.Settings;
-			using (var stream = context.DataStreamOpener())
+			var textureLoadingSettings = (Texture2DLoadingSettings)settings;
+			using (var stream = manager.OpenAssetStream(assetName))
 			{
 				return Texture2DExtensions.FromStream(textureLoadingSettings.GraphicsDevice, stream, textureLoadingSettings.PremultiplyAlpha);
 			}
