@@ -8,10 +8,10 @@ namespace AssetManagementBase
 {
 	partial class XNAssetsExt
 	{
-		private static AssetLoader<Effect> _effectLoader = (manager, assetName, settings) =>
+		private static AssetLoader<Effect> _effectLoader = (manager, assetName, settings, tag) =>
 		{
 			var data = manager.ReadAssetAsByteArray(assetName);
-			var graphicsDevice = (GraphicsDevice)settings;
+			var graphicsDevice = (GraphicsDevice)tag;
 			return new Effect(graphicsDevice, data);
 		};
 
@@ -51,7 +51,7 @@ namespace AssetManagementBase
 				key.Append(ext);
 			}
 
-			return assetManager.UseLoader(_effectLoader, key.ToString(), graphicsDevice);
+			return assetManager.UseLoader(_effectLoader, key.ToString(), tag: graphicsDevice);
 		}
 	}
 }

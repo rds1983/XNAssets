@@ -6,9 +6,9 @@
     <PackageProjectUrl>https://github.com/rds1983/XNAssets</PackageProjectUrl>
     <Description>Alternative to MonoGame Content Pipeline that loads raw assets</Description>
     <RootNamespace>XNAssets</RootNamespace>
-    <Version>0.6.1</Version>
+    <Version>0.6.2</Version>
     <StbImageSharpVersion>2.27.13</StbImageSharpVersion>
-    <AssetManagementBaseVersion>0.6.1</AssetManagementBaseVersion>
+    <AssetManagementBaseVersion>0.6.2</AssetManagementBaseVersion>
     <CyotekDrawingBitmapFontVersion>2.0.4</CyotekDrawingBitmapFontVersion>
     <MonoGameVersion>3.8.1.303</MonoGameVersion>
   </PropertyGroup>

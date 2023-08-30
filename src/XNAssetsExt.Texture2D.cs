@@ -12,38 +12,33 @@ namespace AssetManagementBase
 {
 	public static partial class XNAssetsExt
 	{
-		private class Texture2DLoadingSettings
+		private class Texture2DLoadingSettings : IAssetSettings
 		{
-			public GraphicsDevice GraphicsDevice { get; }
+			public bool PremultiplyAlpha { get; private set; }
 
-			public bool PremultiplyAlpha { get; set; }
-
-			public Texture2DLoadingSettings(GraphicsDevice graphicsDevice)
+			public Texture2DLoadingSettings(bool premultiplyAlapha)
 			{
-				GraphicsDevice = graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
+				PremultiplyAlpha = premultiplyAlapha;
 			}
 
-			public override string ToString()
+			public string BuildKey()
 			{
 				return PremultiplyAlpha ? "pm" : "npm";
 			}
 		}
 
-		private static AssetLoader<Texture2D> _textureLoader = (manager, assetName, settings) =>
+		private static AssetLoader<Texture2D> _textureLoader = (manager, assetName, settings, tag) =>
 		{
 			var textureLoadingSettings = (Texture2DLoadingSettings)settings;
 			using (var stream = manager.OpenAssetStream(assetName))
 			{
-				return Texture2DExtensions.FromStream(textureLoadingSettings.GraphicsDevice, stream, textureLoadingSettings.PremultiplyAlpha);
+				return Texture2DExtensions.FromStream((GraphicsDevice)tag, stream, textureLoadingSettings.PremultiplyAlpha);
 			}
 		};
 
 		public static Texture2D LoadTexture2D(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName, bool premultiplyAlpha = false)
 		{
-			return assetManager.UseLoader(_textureLoader, assetName, new Texture2DLoadingSettings(graphicsDevice)
-			{
-				PremultiplyAlpha = premultiplyAlpha
-			});
+			return assetManager.UseLoader(_textureLoader, assetName, new Texture2DLoadingSettings(premultiplyAlpha), graphicsDevice);
 		}
 	}
 }
