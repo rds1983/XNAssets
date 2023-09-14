@@ -51,20 +51,28 @@ Effect|LoadEffect|Effect in binary form
 ## FontStashSharp Support
 If you're using [FontStashSharp](https://github.com/FontStashSharp/FontStashSharp), then following code snippet will allow to load FontSystems and StaticSpriteFonts through XNAssets:
 ```c#
+using System.IO;
+using AssetManagementBase;
+using FontStashSharp;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
 internal static class FSSLoaders
 {
-    private class FontSystemLoadingSettings
+    private class FontSystemLoadingSettings: IAssetSettings
     {
         public Texture2D ExistingTexture { get; set; }
         public Rectangle ExistingTextureUsedSpace { get; set; }
         public string[] AdditionalFonts { get; set; }
+
+        public string BuildKey() => string.Empty;
     }
 
-    private static AssetLoader<FontSystem> _fontSystemLoader = (context) =>
+    private static AssetLoader<FontSystem> _fontSystemLoader = (manager, assetName, settings, tag) =>
     {
         var fontSystemSettings = new FontSystemSettings();
 
-        var fontSystemLoadingSettings = (FontSystemLoadingSettings)context.Settings;
+        var fontSystemLoadingSettings = (FontSystemLoadingSettings)settings;
         if (fontSystemLoadingSettings != null)
         {
             fontSystemSettings.ExistingTexture = fontSystemLoadingSettings.ExistingTexture;
@@ -72,13 +80,13 @@ internal static class FSSLoaders
         };
 
         var fontSystem = new FontSystem(fontSystemSettings);
-        var data = context.ReadAssetAsByteArray();
+        var data = manager.ReadAssetAsByteArray(assetName);
         fontSystem.AddFont(data);
         if (fontSystemLoadingSettings != null && fontSystemLoadingSettings.AdditionalFonts != null)
         {
             foreach (var file in fontSystemLoadingSettings.AdditionalFonts)
             {
-                data = context.Manager.LoadByteArray(file, false);
+                data = manager.LoadByteArray(file, false);
                 fontSystem.AddFont(data);
             }
         }
@@ -86,15 +94,15 @@ internal static class FSSLoaders
         return fontSystem;
     };
 
-    private static AssetLoader<StaticSpriteFont> _staticFontLoader = (context) =>
+    private static AssetLoader<StaticSpriteFont> _staticFontLoader = (manager, assetName, settings, tag) =>
     {
-        var fontData = context.ReadDataAsString();
-        var graphicsDevice = (GraphicsDevice)context.Settings;
+        var fontData = manager.ReadAssetAsString(assetName);
+        var graphicsDevice = (GraphicsDevice)tag;
 
         return StaticSpriteFont.FromBMFont(fontData,
                     name =>
                     {
-                        var imageData = context.Manager.LoadByteArray(name, false);
+                        var imageData = manager.LoadByteArray(name, false);
                         return new MemoryStream(imageData);
                     },
                     graphicsDevice);
@@ -118,7 +126,7 @@ internal static class FSSLoaders
 
     public static StaticSpriteFont LoadStaticSpriteFont(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName)
     {
-        return assetManager.UseLoader(_staticFontLoader, assetName, graphicsDevice);
+        return assetManager.UseLoader(_staticFontLoader, assetName, tag: graphicsDevice);
     }
 }
 ```
