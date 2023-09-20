@@ -2,7 +2,6 @@
 using System.Text;
 using System.Linq;
 using Microsoft.Xna.Framework.Graphics;
-using System.IO;
 
 namespace AssetManagementBase
 {
