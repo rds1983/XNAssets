@@ -10,7 +10,7 @@ namespace AssetManagementBase
 	{
 		private static AssetLoader<Effect> _effectLoader = (manager, assetName, settings, tag) =>
 		{
-			var data = manager.ReadAssetAsByteArray(assetName);
+			var data = manager.ReadAsByteArray(assetName);
 			var graphicsDevice = (GraphicsDevice)tag;
 			return new Effect(graphicsDevice, data);
 		};
@@ -19,8 +19,15 @@ namespace AssetManagementBase
 		{
 			var key = new StringBuilder();
 
-			var nameWithoutExt = Path.GetFileNameWithoutExtension(name);
-			var ext = Path.GetExtension(name);
+			var nameWithoutExt = name;
+			var ext = string.Empty;
+			var extPos = name.LastIndexOf('.');
+
+			if (extPos != -1)
+			{
+				nameWithoutExt = name.Substring(0, extPos);
+				ext = name.Substring(extPos + 1);
+			}
 
 			key.Append(nameWithoutExt);
 

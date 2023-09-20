@@ -12,10 +12,10 @@ namespace AssetManagementBase
 	{
 		private static readonly AssetLoader<SpriteFont> _spriteFontLoader = (manager, assetName, settings, tag) =>
 		{
-			var data = manager.ReadAssetAsString(assetName);
+			var data = manager.ReadAsString(assetName);
 			var graphicsDevice = (GraphicsDevice)tag;
 
-			return BMFontLoader.Load(data, name => manager.ReadAssetAsByteArray(name), graphicsDevice);
+			return BMFontLoader.Load(data, name => manager.ReadAsByteArray(name), graphicsDevice);
 		};
 
 		public static SpriteFont LoadSpriteFont(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName) => assetManager.UseLoader(_spriteFontLoader, assetName, tag: graphicsDevice);

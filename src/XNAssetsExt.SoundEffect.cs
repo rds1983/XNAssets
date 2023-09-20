@@ -6,7 +6,7 @@ namespace AssetManagementBase
 	{
 		private static AssetLoader<SoundEffect> _soundEffectLoader = (manager, assetName, settings, tag) =>
 		{
-			using (var stream = manager.OpenAssetStream(assetName))
+			using (var stream = manager.Open(assetName))
 			{
 				return SoundEffect.FromStream(stream);
 			}

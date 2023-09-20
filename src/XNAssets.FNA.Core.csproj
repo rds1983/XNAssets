@@ -8,11 +8,12 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>	
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AssetManagementBase" Version="$(AssetManagementBaseVersion)" />
+    <PackageReference Include="AssetManagementBase" Version="0.6.3" />
     <PackageReference Include="StbImageSharp" Version="$(StbImageSharpVersion)" />
     <PackageReference Include="Cyotek.Drawing.BitmapFont" Version="$(CyotekDrawingBitmapFontVersion)" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DdsKtxXna\DdsKtxXna\DdsKtxXna.FNA.Core.csproj" />
     <ProjectReference Include="..\..\FNA\FNA.Core.csproj" />
   </ItemGroup>  
 </Project>

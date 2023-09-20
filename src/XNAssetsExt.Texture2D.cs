@@ -1,5 +1,7 @@
 ﻿using System;
 using XNAssets.Utility;
+using XNAssets;
+using DdsKtxXna;
 
 #if !STRIDE
 using Microsoft.Xna.Framework.Graphics;
@@ -12,25 +14,20 @@ namespace AssetManagementBase
 {
 	public static partial class XNAssetsExt
 	{
-		private class Texture2DLoadingSettings : IAssetSettings
+		private static AssetLoader<Texture> _textureLoader = (manager, assetName, settings, tag) =>
 		{
-			public bool PremultiplyAlpha { get; private set; }
-
-			public Texture2DLoadingSettings(bool premultiplyAlapha)
+			if (assetName.ToLower().EndsWith(".dds"))
 			{
-				PremultiplyAlpha = premultiplyAlapha;
+				// TODO: Apply loading settings
+				using (var stream = manager.Open(assetName))
+				{
+					return DdsKtxLoader.FromStream((GraphicsDevice)tag, stream);
+				}
 			}
 
-			public string BuildKey()
-			{
-				return PremultiplyAlpha ? "pm" : "npm";
-			}
-		}
+			var textureLoadingSettings = (TextureLoadingSettings)settings;
 
-		private static AssetLoader<Texture2D> _textureLoader = (manager, assetName, settings, tag) =>
-		{
-			var textureLoadingSettings = (Texture2DLoadingSettings)settings;
-			using (var stream = manager.OpenAssetStream(assetName))
+			using (var stream = manager.Open(assetName))
 			{
 				return Texture2DExtensions.FromStream((GraphicsDevice)tag, stream, textureLoadingSettings.PremultiplyAlpha);
 			}
@@ -38,7 +35,24 @@ namespace AssetManagementBase
 
 		public static Texture2D LoadTexture2D(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName, bool premultiplyAlpha = false)
 		{
-			return assetManager.UseLoader(_textureLoader, assetName, new Texture2DLoadingSettings(premultiplyAlpha), graphicsDevice);
+			return (Texture2D)assetManager.UseLoader(_textureLoader, assetName,
+				premultiplyAlpha ? TextureLoadingSettings.DefaultPremultiplyAlpha : TextureLoadingSettings.Default,
+				graphicsDevice);
+		}
+
+		public static Texture2D LoadTexture2D(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName, TextureLoadingSettings settings)
+		{
+			if (settings == null)
+			{
+				settings = TextureLoadingSettings.Default;
+			}
+
+			return (Texture2D)assetManager.UseLoader(_textureLoader, assetName, settings, graphicsDevice);
+		}
+
+		public static Texture LoadTexture(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName, TextureLoadingSettings settings)
+		{
+			return assetManager.UseLoader(_textureLoader, assetName, settings, graphicsDevice);
 		}
 	}
 }
