@@ -43,7 +43,8 @@ XNAssets allows to load following asset types out of the box:
 
 Type|Method Name|Description
 ----|-----------|-----------
-Texture2D|LoadTexture2D|Texture in BMP, TGA, PNG, JPG, GIF or PSD format. There's optional parameter that determines whether the alpha should be premultiplied
+Texture2D|LoadTexture2D|Texture in BMP, TGA, PNG, JPG, GIF, PSD or DDS format. There's optional parameter that determines whether the alpha should be premultiplied. The parameter is ignored if loading dds.
+TextureCube|LoadTextureCube|Cube Texture in DDS format.
 SpriteFont|LoadSpriteFont|Font in AngelCode's BMFont .fnt format
 SoundEffect|LoadSoundEffect|SoundEffect in WAV format
 Effect|LoadEffect|Effect in binary form
