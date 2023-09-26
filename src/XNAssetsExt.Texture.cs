@@ -1,10 +1,10 @@
 ﻿using System;
 using XNAssets.Utility;
 using XNAssets;
-using DdsKtxXna;
 
 #if !STRIDE
 using Microsoft.Xna.Framework.Graphics;
+using DdsKtxXna;
 #else
 using Stride.Graphics;
 using Texture2D = Stride.Graphics.Texture;
@@ -31,6 +31,7 @@ namespace AssetManagementBase
 
 		private static AssetLoader<Texture> _textureLoader = (manager, assetName, settings, tag) =>
 		{
+#if !STRIDE
 			if (assetName.ToLower().EndsWith(".dds"))
 			{
 				// TODO: Apply loading settings
@@ -39,6 +40,7 @@ namespace AssetManagementBase
 					return DdsKtxLoader.FromStream((GraphicsDevice)tag, stream);
 				}
 			}
+#endif
 
 			var premultiplyAlpha = false;
 			var textureLoadingSettings = (TextureLoadingSettings)settings;
@@ -53,6 +55,7 @@ namespace AssetManagementBase
 			}
 		};
 
+#if !STRIDE
 		private static AssetLoader<TextureCube> _textureCubeLoader = (manager, assetName, settings, tag) =>
 		{
 			using (var stream = manager.Open(assetName))
@@ -66,16 +69,17 @@ namespace AssetManagementBase
 			return assetManager.UseLoader(_textureCubeLoader, assetName, tag: graphicsDevice);
 		}
 
+		public static Texture LoadTexture(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName)
+		{
+			return assetManager.UseLoader(_textureLoader, assetName, TextureLoadingSettings.Default, graphicsDevice);
+		}
+#endif
+
 		public static Texture2D LoadTexture2D(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName, bool premultiplyAlpha = false)
 		{
 			return (Texture2D)assetManager.UseLoader(_textureLoader, assetName,
 				premultiplyAlpha ? TextureLoadingSettings.PremultipliedAlpha : TextureLoadingSettings.Default,
 				graphicsDevice);
-		}
-
-		public static Texture LoadTexture(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName)
-		{
-			return assetManager.UseLoader(_textureLoader, assetName, TextureLoadingSettings.Default, graphicsDevice);
 		}
 	}
 }
