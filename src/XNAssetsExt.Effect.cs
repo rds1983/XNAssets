@@ -11,7 +11,10 @@ namespace AssetManagementBase
 		{
 			var data = manager.ReadAsByteArray(assetName);
 			var graphicsDevice = (GraphicsDevice)tag;
-			return new Effect(graphicsDevice, data);
+			return new Effect(graphicsDevice, data)
+			{ 
+				Name = assetName
+			};
 		};
 
 		public static Effect LoadEffect(this AssetManager assetManager, GraphicsDevice graphicsDevice, string name, Dictionary<string, string> defines = null)
