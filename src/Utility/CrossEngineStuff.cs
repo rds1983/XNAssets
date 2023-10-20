@@ -17,7 +17,7 @@ namespace XNAssets.Utility
 			result.SetData(data);
 			return result;
 #else
-			return Texture2D.New2D(graphicsDevice, width, height, PixelFormat.R8G8B8A8_UNorm_SRgb, data);
+			return Texture2D.New2D(graphicsDevice, width, height, PixelFormat.R8G8B8A8_UNorm_SRgb, data, usage: GraphicsResourceUsage.Default);
 #endif
 		}
 	}
