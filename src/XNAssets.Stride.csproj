@@ -23,6 +23,6 @@
     <PackageReference Include="AssetManagementBase" Version="$(AssetManagementBaseVersion)" />
     <PackageReference Include="StbImageSharp" Version="$(StbImageSharpVersion)" />
     <PackageReference Include="Cyotek.Drawing.BitmapFont" Version="$(CyotekDrawingBitmapFontVersion)" />
-    <PackageReference Include="Stride.Graphics" Version="4.1.0.1948" />
+    <PackageReference Include="Stride.Graphics" Version="$(StrideVersion)" />
   </ItemGroup>
 </Project>
