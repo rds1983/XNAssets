@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="AssetManagementBase" Version="$(AssetManagementBaseVersion)" />
-    <PackageReference Include="DdsKtxXna.MonoGame" Version="0.4.2" />
+    <PackageReference Include="DdsKtxXna.MonoGame" Version="0.4.4" />
     <PackageReference Include="StbImageSharp" Version="$(StbImageSharpVersion)" />
     <PackageReference Include="Cyotek.Drawing.BitmapFont" Version="$(CyotekDrawingBitmapFontVersion)" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" PrivateAssets="All" Version="$(MonoGameVersion)" />
