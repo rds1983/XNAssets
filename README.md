@@ -81,7 +81,7 @@ internal static class FSSLoaders
         };
 
         var fontSystem = new FontSystem(fontSystemSettings);
-        var data = manager.ReadAssetAsByteArray(assetName);
+        var data = manager.ReadAsByteArray(assetName);
         fontSystem.AddFont(data);
         if (fontSystemLoadingSettings != null && fontSystemLoadingSettings.AdditionalFonts != null)
         {
@@ -97,7 +97,7 @@ internal static class FSSLoaders
 
     private static AssetLoader<StaticSpriteFont> _staticFontLoader = (manager, assetName, settings, tag) =>
     {
-        var fontData = manager.ReadAssetAsString(assetName);
+        var fontData = manager.ReadAsString(assetName);
         var graphicsDevice = (GraphicsDevice)tag;
 
         return StaticSpriteFont.FromBMFont(fontData,
