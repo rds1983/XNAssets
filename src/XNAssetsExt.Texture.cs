@@ -1,6 +1,8 @@
 ﻿using System;
 using XNAssets.Utility;
 using XNAssets;
+using Microsoft.Xna.Framework;
+
 
 #if !STRIDE
 using Microsoft.Xna.Framework.Graphics;
@@ -16,14 +18,20 @@ namespace AssetManagementBase
 	{
 		private class TextureLoadingSettings : IAssetSettings
 		{
-			public static readonly TextureLoadingSettings Default = new TextureLoadingSettings(false);
-			public static readonly TextureLoadingSettings PremultipliedAlpha = new TextureLoadingSettings(true);
+			public static readonly Color DefaultColorKey = Color.Magenta;
+
+			public static readonly TextureLoadingSettings NoPremultiplyNoColorKey = new TextureLoadingSettings(false, null);
+			public static readonly TextureLoadingSettings Premultiply = new TextureLoadingSettings(true, null);
+			public static readonly TextureLoadingSettings NoPremultiplyDefaultColorKey = new TextureLoadingSettings(false, DefaultColorKey);
+			public static readonly TextureLoadingSettings PremultiplyDefaultColorKey = new TextureLoadingSettings(true, DefaultColorKey);
 
 			public bool PremultiplyAlpha { get; }
+			public Color? ColorKey { get; }
 
-			public TextureLoadingSettings(bool premultiplyAlpha)
+			public TextureLoadingSettings(bool premultiplyAlpha, Color? colorKey)
 			{
 				PremultiplyAlpha = premultiplyAlpha;
+				ColorKey = colorKey;
 			}
 
 			public string BuildKey() => PremultiplyAlpha.ToString();
@@ -42,16 +50,15 @@ namespace AssetManagementBase
 			}
 #endif
 
-			var premultiplyAlpha = false;
 			var textureLoadingSettings = (TextureLoadingSettings)settings;
-			if (textureLoadingSettings != null)
+			if (textureLoadingSettings == null)
 			{
-				premultiplyAlpha = textureLoadingSettings.PremultiplyAlpha;
+				textureLoadingSettings = TextureLoadingSettings.NoPremultiplyNoColorKey;
 			}
 
 			using (var stream = manager.Open(assetName))
 			{
-				return Texture2DExtensions.FromStream((GraphicsDevice)tag, stream, premultiplyAlpha);
+				return Texture2DExtensions.FromStream((GraphicsDevice)tag, stream, textureLoadingSettings.PremultiplyAlpha, textureLoadingSettings.ColorKey);
 			}
 		};
 
@@ -71,15 +78,36 @@ namespace AssetManagementBase
 
 		public static Texture LoadTexture(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName)
 		{
-			return assetManager.UseLoader(_textureLoader, assetName, TextureLoadingSettings.Default, graphicsDevice);
+			return assetManager.UseLoader(_textureLoader, assetName, TextureLoadingSettings.NoPremultiplyNoColorKey, graphicsDevice);
 		}
 #endif
 
-		public static Texture2D LoadTexture2D(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName, bool premultiplyAlpha = false)
+		public static Texture2D LoadTexture2D(this AssetManager assetManager, GraphicsDevice graphicsDevice,
+			string assetName, bool premultiplyAlpha = false, Color? colorKey = null)
 		{
-			return (Texture2D)assetManager.UseLoader(_textureLoader, assetName,
-				premultiplyAlpha ? TextureLoadingSettings.PremultipliedAlpha : TextureLoadingSettings.Default,
-				graphicsDevice);
+			TextureLoadingSettings settings;
+			if (!premultiplyAlpha && colorKey == null)
+			{
+				settings = TextureLoadingSettings.NoPremultiplyNoColorKey;
+			}
+			else if (premultiplyAlpha && colorKey == null)
+			{
+				settings = TextureLoadingSettings.NoPremultiplyNoColorKey;
+			}
+			else if (!premultiplyAlpha && colorKey.Value == TextureLoadingSettings.DefaultColorKey)
+			{
+				settings = TextureLoadingSettings.NoPremultiplyDefaultColorKey;
+			}
+			else if (premultiplyAlpha && colorKey.Value == TextureLoadingSettings.DefaultColorKey)
+			{
+				settings = TextureLoadingSettings.PremultiplyDefaultColorKey;
+			}
+			else
+			{
+				settings = new TextureLoadingSettings(premultiplyAlpha, colorKey);
+			}
+
+			return (Texture2D)assetManager.UseLoader(_textureLoader, assetName, settings, graphicsDevice);
 		}
 	}
 }

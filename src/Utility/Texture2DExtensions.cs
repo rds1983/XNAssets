@@ -1,5 +1,7 @@
 ﻿using StbImageSharp;
 using System.IO;
+using Microsoft.Xna.Framework;
+
 
 #if !STRIDE
 using Microsoft.Xna.Framework.Graphics;
@@ -19,7 +21,7 @@ namespace XNAssets.Utility
 		/// <param name="stream"></param>
 		/// <param name="premultiplyAlpha"></param>
 		/// <returns></returns>
-		public static unsafe Texture2D FromStream(GraphicsDevice graphicsDevice, Stream stream, bool premultiplyAlpha)
+		public static unsafe Texture2D FromStream(GraphicsDevice graphicsDevice, Stream stream, bool premultiplyAlpha, Color? colorKey)
 		{
 			byte[] bytes;
 
@@ -40,17 +42,38 @@ namespace XNAssets.Utility
 			// The data returned is always four channel BGRA
 			var result = ImageResult.FromMemory(bytes, ColorComponents.RedGreenBlueAlpha);
 
-			if (premultiplyAlpha)
+			if (premultiplyAlpha || colorKey != null)
 			{
+				bool colorKeyEnabled = false;
+				var colorKey2 = Color.White;
+
+				if (colorKey != null)
+				{
+					colorKeyEnabled = true;
+					colorKey2 = colorKey.Value;
+				}
+
 				fixed (byte* b = &result.Data[0])
 				{
 					byte* ptr = b;
 					for (var i = 0; i < result.Data.Length; i += 4, ptr += 4)
 					{
-						var falpha = ptr[3] / 255.0f;
-						ptr[0] = (byte)(ptr[0] * falpha);
-						ptr[1] = (byte)(ptr[1] * falpha);
-						ptr[2] = (byte)(ptr[2] * falpha);
+						if (colorKeyEnabled &&
+							ptr[0] == colorKey2.R &&
+							ptr[1] == colorKey2.G &&
+							ptr[2] == colorKey2.B &&
+							ptr[3] == colorKey2.A)
+						{
+							ptr[0] = ptr[1] = ptr[2] = ptr[3] = 0;
+						}
+
+						if (premultiplyAlpha)
+						{
+							var falpha = ptr[3] / 255.0f;
+							ptr[0] = (byte)(ptr[0] * falpha);
+							ptr[1] = (byte)(ptr[1] * falpha);
+							ptr[2] = (byte)(ptr[2] * falpha);
+						}
 					}
 				}
 			}
