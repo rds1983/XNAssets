@@ -22,7 +22,7 @@ namespace AssetManagementBase
 			public static readonly Color DefaultColorKey = Color.Magenta;
 
 			public static readonly TextureLoadingSettings NoPremultiplyNoColorKey = new TextureLoadingSettings(false, null);
-			public static readonly TextureLoadingSettings Premultiply = new TextureLoadingSettings(true, null);
+			public static readonly TextureLoadingSettings PremultiplyNoColorKey = new TextureLoadingSettings(true, null);
 			public static readonly TextureLoadingSettings NoPremultiplyDefaultColorKey = new TextureLoadingSettings(false, DefaultColorKey);
 			public static readonly TextureLoadingSettings PremultiplyDefaultColorKey = new TextureLoadingSettings(true, DefaultColorKey);
 
@@ -40,7 +40,7 @@ namespace AssetManagementBase
 				if (colorKey != null)
 				{
 					sb.Append(",");
-					sb.Append(colorKey.Value.ToString());
+					sb.Append(colorKey.Value.ToHexString());
 				}
 
 				CacheKey = sb.ToString();
@@ -104,7 +104,7 @@ namespace AssetManagementBase
 			}
 			else if (premultiplyAlpha && colorKey == null)
 			{
-				settings = TextureLoadingSettings.NoPremultiplyNoColorKey;
+				settings = TextureLoadingSettings.PremultiplyNoColorKey;
 			}
 			else if (!premultiplyAlpha && colorKey.Value == TextureLoadingSettings.DefaultColorKey)
 			{

@@ -80,5 +80,14 @@ namespace XNAssets.Utility
 
 			return CrossEngineStuff.CreateTexture2D(graphicsDevice, result.Width, result.Height, result.Data);
 		}
+
+		public static string ToHexString(this Color c)
+		{
+			return string.Format("#{0}{1}{2}{3}",
+				c.R.ToString("X2"),
+				c.G.ToString("X2"),
+				c.B.ToString("X2"),
+				c.A.ToString("X2"));
+		}
 	}
 }

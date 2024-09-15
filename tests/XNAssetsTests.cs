@@ -91,5 +91,31 @@ namespace XNAssets.Tests
 			var font = assetManager.LoadSpriteFont(TestsEnvironment.GraphicsDevice, "arial64.fnt");
 			Assert.AreEqual(font.Characters.Count, 191);
 		}
+
+		[Test]
+		public void TestColorKey()
+		{
+			var assetManager = CreateResourceAssetManager();
+
+			string imageName = "HUD_Aiming.png";
+
+			// Call LoadTexture2D twice for every parameter to make sure caching works correctly
+			var textureWithoutColorKey = assetManager.LoadTexture2D(TestsEnvironment.GraphicsDevice, imageName, false, null);
+			textureWithoutColorKey = assetManager.LoadTexture2D(TestsEnvironment.GraphicsDevice, imageName, false, null);
+			var textureWithColorKey = assetManager.LoadTexture2D(TestsEnvironment.GraphicsDevice, imageName, false, Color.Magenta);
+			textureWithColorKey = assetManager.LoadTexture2D(TestsEnvironment.GraphicsDevice, imageName, false, Color.Magenta);
+
+			Assert.AreEqual(2, assetManager.Cache.Count);
+
+			var colorData = new Color[textureWithoutColorKey.Width * textureWithoutColorKey.Height];
+			textureWithoutColorKey.GetData(colorData);
+
+			// Should have magenta pixels
+			Assert.AreEqual(Color.Magenta, colorData[0]);
+
+			// Should have transparent pixels
+			textureWithColorKey.GetData(colorData);
+			Assert.AreEqual(new Color(0, 0, 0, 0), colorData[0]);
+		}
 	}
 }
