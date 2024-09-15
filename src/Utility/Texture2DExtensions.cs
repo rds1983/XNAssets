@@ -1,11 +1,11 @@
 ﻿using StbImageSharp;
 using System.IO;
-using Microsoft.Xna.Framework;
-
 
 #if !STRIDE
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 #else
+using Stride.Core.Mathematics;
 using Stride.Graphics;
 using Texture2D = Stride.Graphics.Texture;
 #endif

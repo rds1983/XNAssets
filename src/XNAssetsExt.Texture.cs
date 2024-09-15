@@ -1,13 +1,14 @@
 ﻿using System;
 using XNAssets.Utility;
 using XNAssets;
-using Microsoft.Xna.Framework;
-
+using System.Text;
 
 #if !STRIDE
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using DdsKtxXna;
 #else
+using Stride.Core.Mathematics;
 using Stride.Graphics;
 using Texture2D = Stride.Graphics.Texture;
 #endif
@@ -27,14 +28,25 @@ namespace AssetManagementBase
 
 			public bool PremultiplyAlpha { get; }
 			public Color? ColorKey { get; }
+			public string CacheKey { get; }
 
 			public TextureLoadingSettings(bool premultiplyAlpha, Color? colorKey)
 			{
 				PremultiplyAlpha = premultiplyAlpha;
 				ColorKey = colorKey;
+
+				var sb = new StringBuilder();
+				sb.Append(premultiplyAlpha);
+				if (colorKey != null)
+				{
+					sb.Append(",");
+					sb.Append(colorKey.Value.ToString());
+				}
+
+				CacheKey = sb.ToString();
 			}
 
-			public string BuildKey() => PremultiplyAlpha.ToString();
+			public string BuildKey() => CacheKey;
 		}
 
 		private static AssetLoader<Texture> _textureLoader = (manager, assetName, settings, tag) =>
