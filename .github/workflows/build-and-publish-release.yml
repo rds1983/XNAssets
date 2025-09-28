@@ -25,9 +25,12 @@ jobs:
       uses: NuGet/setup-nuget@v1
     - name: Publish XNAssets.MonoGame to NuGet
       run: nuget.exe push src\XNAssets\bin\MonoGame\Release\XNAssets.MonoGame.*.nupkg ${{secrets.NUGET_APIKEY}} -Source https://api.nuget.org/v3/index.json
+      continue-on-error: true
     - name: Publish XNAssets.MonoGame.FontStashSharp to NuGet
       run: nuget.exe push src\XNAssets.FontStashSharp\bin\MonoGame\Release\XNAssets.MonoGame.*.nupkg ${{secrets.NUGET_APIKEY}} -Source https://api.nuget.org/v3/index.json
+      continue-on-error: true
     - name: Publish XNAssets.Stride to NuGet
       run: nuget.exe push src\XNAssets\bin\Stride\Release\XNAssets.Stride.*.nupkg ${{secrets.NUGET_APIKEY}} -Source https://api.nuget.org/v3/index.json
+      continue-on-error: true
     - name: Publish XNAssets.Stride.FontStashSharp to NuGet
       run: nuget.exe push src\XNAssets.FontStashSharp\bin\Stride\Release\XNAssets.Stride.*.nupkg ${{secrets.NUGET_APIKEY}} -Source https://api.nuget.org/v3/index.json      
