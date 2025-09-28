@@ -5,7 +5,12 @@
     <PackageId>XNAssets.FontStashSharp.MonoGame</PackageId>
     <AssemblyName>XNAssets.FontStashSharp.MonoGame</AssemblyName>
     <DefineConstants>$(DefineConstants);MONOGAME</DefineConstants>
-    <OutputPath>bin\MonoGame\$(Configuration)</OutputPath>  </PropertyGroup>
+    <OutputPath>bin\MonoGame\$(Configuration)</OutputPath>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AssetManagementBase" Version="$(AssetManagementBaseVersion)" />
