@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if !STRIDE
+
+using System;
 using System.Collections.Generic;
 using Cyotek.Drawing.BitmapFont;
 using System.Linq;
@@ -96,3 +98,5 @@ namespace XNAssets.Utility
 		}
 	}
 }
+
+#endif

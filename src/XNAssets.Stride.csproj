@@ -13,13 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Utility\BMFontLoader.cs" />
-    <Compile Remove="XNAssetsExt.Effect.cs" />
-    <Compile Remove="XNAssetsExt.SoundEffect.cs" />
-    <Compile Remove="XNAssetsExt.SpriteFont.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AssetManagementBase" Version="$(AssetManagementBaseVersion)" />
     <PackageReference Include="StbImageSharp" Version="$(StbImageSharpVersion)" />
     <PackageReference Include="Cyotek.Drawing.BitmapFont" Version="$(CyotekDrawingBitmapFontVersion)" />

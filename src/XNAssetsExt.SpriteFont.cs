@@ -1,10 +1,7 @@
-﻿using XNAssets.Utility;
+﻿#if !STRIDE
 
-#if !STRIDE
+using XNAssets.Utility;
 using Microsoft.Xna.Framework.Graphics;
-#else
-using Stride.Graphics;
-#endif
 
 namespace AssetManagementBase
 {
@@ -21,3 +18,5 @@ namespace AssetManagementBase
 		public static SpriteFont LoadSpriteFont(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName) => assetManager.UseLoader(_spriteFontLoader, assetName, tag: graphicsDevice);
 	}
 }
+
+#endif

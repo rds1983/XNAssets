@@ -89,5 +89,20 @@ namespace XNAssets.Utility
 				c.B.ToString("X2"),
 				c.A.ToString("X2"));
 		}
+
+#if !STRIDE
+		public static byte[] ToByteArray(this Stream stream)
+		{
+			byte[] bytes;
+
+			using (var ms = new MemoryStream())
+			{
+				stream.CopyTo(ms);
+				bytes = ms.ToArray();
+			}
+
+			return bytes;
+		}
+#endif
 	}
 }

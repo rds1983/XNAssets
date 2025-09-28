@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿#if !STRIDE
+
+using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Microsoft.Xna.Framework.Graphics;
@@ -64,3 +66,5 @@ namespace AssetManagementBase
 		}
 	}
 }
+
+#endif

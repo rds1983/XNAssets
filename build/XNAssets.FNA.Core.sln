@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNAssets.FNA.Core", "..\src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FNA.Core", "..\..\FNA\FNA.Core.csproj", "{05A1BB50-335C-42FF-BF3D-C33577CCA58F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DdsKtxXna.FNA.Core", "..\..\DdsKtxXna\DdsKtxXna\DdsKtxXna.FNA.Core.csproj", "{254D9F8A-5995-41D9-BF78-A1B8A32D7292}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{05A1BB50-335C-42FF-BF3D-C33577CCA58F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05A1BB50-335C-42FF-BF3D-C33577CCA58F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05A1BB50-335C-42FF-BF3D-C33577CCA58F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{254D9F8A-5995-41D9-BF78-A1B8A32D7292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{254D9F8A-5995-41D9-BF78-A1B8A32D7292}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{254D9F8A-5995-41D9-BF78-A1B8A32D7292}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{254D9F8A-5995-41D9-BF78-A1B8A32D7292}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

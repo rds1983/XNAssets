@@ -6,7 +6,6 @@ using System.Text;
 #if !STRIDE
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using DdsKtxXna;
 #else
 using Stride.Core.Mathematics;
 using Stride.Graphics;

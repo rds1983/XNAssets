@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework.Audio;
+﻿#if !STRIDE
+
+using Microsoft.Xna.Framework.Audio;
 
 namespace AssetManagementBase
 {
@@ -15,3 +17,5 @@ namespace AssetManagementBase
 		public static SoundEffect LoadSoundEffect(this AssetManager assetManager, string assetName) => assetManager.UseLoader(_soundEffectLoader, assetName);
 	}
 }
+
+#endif
