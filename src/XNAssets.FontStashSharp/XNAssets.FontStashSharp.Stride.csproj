@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(StrideTargetFramework)</TargetFramework>
+    <PackageId>XNAssets.FontStashSharp.Stride</PackageId>
+    <AssemblyName>XNAssets.FontStashSharp.Stride</AssemblyName>
+    <DefineConstants>$(DefineConstants);STRIDE</DefineConstants>
+    <OutputPath>bin\Stride\$(Configuration)</OutputPath>  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AssetManagementBase" Version="$(AssetManagementBaseVersion)" />
+    <PackageReference Include="FontStashSharp.Stride" Version="$(FontStashSharpVersion)" />
+    <PackageReference Include="Stride.Graphics" Version="$(StrideVersion)" />
+  </ItemGroup>
+</Project>

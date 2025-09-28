@@ -18,7 +18,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '8.0.x'
     - name: Build XNAssets.MonoGame
       run: dotnet build build/XNAssets.MonoGame.sln --configuration Release
     - name: Build XNAssets.Stride

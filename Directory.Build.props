@@ -7,12 +7,17 @@
     <Description>Alternative to MonoGame Content Pipeline that loads raw assets</Description>
     <RootNamespace>XNAssets</RootNamespace>
     <Version>0.7.7</Version>
+    <MonoGameTargetFramework>netstandard2.0</MonoGameTargetFramework>
+    <AppMonoGameTargetFramework>net8.0</AppMonoGameTargetFramework>
+    <FNATargetFramework>net8.0</FNATargetFramework>
+    <StrideTargetFramework>net8.0</StrideTargetFramework>
     <StbImageSharpVersion>2.30.15</StbImageSharpVersion>
     <AssetManagementBaseVersion>0.7.1</AssetManagementBaseVersion>
     <CyotekDrawingBitmapFontVersion>2.0.4</CyotekDrawingBitmapFontVersion>
     <MonoGameVersion>3.8.0.1641</MonoGameVersion>
     <AppMonoGameVersion>3.8.4</AppMonoGameVersion>
-    <StrideVersion>4.1.0.1728</StrideVersion>
+    <StrideVersion>4.2.0.2067</StrideVersion>
     <DdsKtxSharpVersion>1.1.0.1</DdsKtxSharpVersion>
+    <FontStashSharpVersion>1.4.1</FontStashSharpVersion>
   </PropertyGroup>
 </Project>

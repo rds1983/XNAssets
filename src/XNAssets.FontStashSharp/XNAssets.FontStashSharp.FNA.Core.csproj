@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(FNATargetFramework)</TargetFramework>
+    <PackageId>XNAssets.FontStashSharp.FNA</PackageId>
+    <AssemblyName>XNAssets.FontStashSharp.FNA</AssemblyName>
+    <DefineConstants>$(DefineConstants);FNA</DefineConstants>
+    <OutputPath>bin\FNA\$(Configuration)</OutputPath>  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AssetManagementBase" Version="$(AssetManagementBaseVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FontStashSharp\src\XNA\FontStashSharp.FNA.Core.csproj" />
+  </ItemGroup>
+</Project>

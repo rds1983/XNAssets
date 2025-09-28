@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(MonoGameTargetFramework)</TargetFramework>
+    <PackageId>XNAssets.FontStashSharp.MonoGame</PackageId>
+    <AssemblyName>XNAssets.FontStashSharp.MonoGame</AssemblyName>
+    <DefineConstants>$(DefineConstants);MONOGAME</DefineConstants>
+    <OutputPath>bin\MonoGame\$(Configuration)</OutputPath>  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AssetManagementBase" Version="$(AssetManagementBaseVersion)" />
+    <PackageReference Include="FontStashSharp.MonoGame" Version="$(FontStashSharpVersion)" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL" PrivateAssets="All" Version="$(MonoGameVersion)" />
+  </ItemGroup>
+</Project>

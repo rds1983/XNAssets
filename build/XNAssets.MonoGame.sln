@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNAssets.MonoGame", "..\src\XNAssets.MonoGame.csproj", "{7BA9D962-4404-4413-91D7-E41D516ABE60}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNAssets.Tests", "..\tests\XNAssets.Tests.csproj", "{68B40277-AD62-4432-945D-D19EA9FA89F3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNAssets.Samples.Test.MonoGame", "..\samples\XNAssets.Samples.Test\XNAssets.Samples.Test.MonoGame.csproj", "{62BF129F-A4F8-4351-840C-5827F2843135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAssets.MonoGame", "..\src\XNAssets\XNAssets.MonoGame.csproj", "{3A1C1A0B-566F-2763-41FF-58BEC67A1214}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAssets.FontStashSharp.MonoGame", "..\src\XNAssets.FontStashSharp\XNAssets.FontStashSharp.MonoGame.csproj", "{CAA3D274-403E-4CE8-9AFA-9B39C0AB1277}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7BA9D962-4404-4413-91D7-E41D516ABE60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BA9D962-4404-4413-91D7-E41D516ABE60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BA9D962-4404-4413-91D7-E41D516ABE60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BA9D962-4404-4413-91D7-E41D516ABE60}.Release|Any CPU.Build.0 = Release|Any CPU
 		{68B40277-AD62-4432-945D-D19EA9FA89F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{68B40277-AD62-4432-945D-D19EA9FA89F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68B40277-AD62-4432-945D-D19EA9FA89F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +25,14 @@ Global
 		{62BF129F-A4F8-4351-840C-5827F2843135}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62BF129F-A4F8-4351-840C-5827F2843135}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62BF129F-A4F8-4351-840C-5827F2843135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A1C1A0B-566F-2763-41FF-58BEC67A1214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A1C1A0B-566F-2763-41FF-58BEC67A1214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A1C1A0B-566F-2763-41FF-58BEC67A1214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A1C1A0B-566F-2763-41FF-58BEC67A1214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAA3D274-403E-4CE8-9AFA-9B39C0AB1277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAA3D274-403E-4CE8-9AFA-9B39C0AB1277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAA3D274-403E-4CE8-9AFA-9B39C0AB1277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAA3D274-403E-4CE8-9AFA-9B39C0AB1277}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

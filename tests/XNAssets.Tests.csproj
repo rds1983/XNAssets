@@ -17,7 +17,7 @@
   </ItemGroup>  
 
   <ItemGroup>
-    <ProjectReference Include="..\src\XNAssets.MonoGame.csproj" />
+    <ProjectReference Include="..\src\XNAssets\XNAssets.MonoGame.csproj" />
   </ItemGroup>  
 
   <ItemGroup>

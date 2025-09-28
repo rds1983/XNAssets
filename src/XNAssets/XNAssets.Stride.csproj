@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>$(StrideTargetFramework)</TargetFramework>
     <PackageId>XNAssets.Stride</PackageId>
     <AssemblyName>XNAssets.Stride</AssemblyName>
     <DefineConstants>$(DefineConstants);STRIDE</DefineConstants>

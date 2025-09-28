@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNAssets.Stride", "..\src\XNAssets.Stride.csproj", "{B5AFCDE4-CB59-4688-A10C-3D6AE64B4421}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAssets.Stride", "..\src\XNAssets\XNAssets.Stride.csproj", "{9C0471D2-A4AC-9D11-33B1-9239615BED79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAssets.FontStashSharp.Stride", "..\src\XNAssets.FontStashSharp\XNAssets.FontStashSharp.Stride.csproj", "{6B2200F1-8BE2-A4D0-7A3E-E5CC03B84A5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B5AFCDE4-CB59-4688-A10C-3D6AE64B4421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5AFCDE4-CB59-4688-A10C-3D6AE64B4421}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5AFCDE4-CB59-4688-A10C-3D6AE64B4421}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5AFCDE4-CB59-4688-A10C-3D6AE64B4421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C0471D2-A4AC-9D11-33B1-9239615BED79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C0471D2-A4AC-9D11-33B1-9239615BED79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C0471D2-A4AC-9D11-33B1-9239615BED79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C0471D2-A4AC-9D11-33B1-9239615BED79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B2200F1-8BE2-A4D0-7A3E-E5CC03B84A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B2200F1-8BE2-A4D0-7A3E-E5CC03B84A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B2200F1-8BE2-A4D0-7A3E-E5CC03B84A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B2200F1-8BE2-A4D0-7A3E-E5CC03B84A5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
