@@ -10,7 +10,7 @@ Name|Description
 [XNAssets](https://www.nuget.org/packages/XNAssets.Monogame/)|Base assets types(textures, effects, etc)
 [XNAssets.FontStashSharp](https://www.nuget.org/packages/XNAssets.FontStashSharp.Monogame/)|[FontStashSharp](https://github.com/FontStashSharp/FontStashSharp) support
 
-See [this]() on how to reference the library in the FNA project.
+See [this](https://github.com/DigitalRiseEngine/DigitalRiseModel/wiki/Adding-Reference-For-FNA-Project) on how to reference the library in the FNA project.
 
 ## Creating AssetManager
 Creating AssetManager that loads files:
