@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿#if !STRIDE
+
+using Microsoft.Xna.Framework.Graphics;
 
 namespace XNAssets.DDS
 {
@@ -18,3 +20,5 @@ namespace XNAssets.DDS
 		}
 	}
 }
+
+#endif

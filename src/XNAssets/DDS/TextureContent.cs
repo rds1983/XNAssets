@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿#if !STRIDE
+
+using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 
 namespace XNAssets.DDS
@@ -26,3 +28,5 @@ namespace XNAssets.DDS
 		}
 	}
 }
+
+#endif

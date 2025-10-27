@@ -1,4 +1,6 @@
-﻿// MonoGame - Copyright (C) MonoGame Foundation, Inc
+﻿#if !STRIDE
+
+// MonoGame - Copyright (C) MonoGame Foundation, Inc
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE.txt', which is part of this source code package.
 
@@ -60,16 +62,6 @@ namespace XNAssets.DDS
 			Rgb = 0x40,
 			Yuv = 0x200,
 			Luminance = 0x20000,
-		}
-
-		public static uint MakeFourCC(char c1, char c2, char c3, char c4)
-		{
-			return ((uint)c1 << 24) | ((uint)c2 << 16) | ((uint)c3 << 8) | (uint)c4;
-		}
-
-		public static uint MakeFourCC(string cc)
-		{
-			return ((uint)cc[0] << 24) | ((uint)cc[1] << 16) | ((uint)cc[2] << 8) | (uint)cc[3];
 		}
 
 		public enum FourCC : uint
@@ -177,7 +169,7 @@ namespace XNAssets.DDS
 			throw new Exception("Unsupported pixel format");
 		}
 
-		static int GetBitmapSize(SurfaceFormat format, int width, int height)
+		public static int GetBitmapSize(SurfaceFormat format, int width, int height)
 		{
 			// It is recommended that the dwPitchOrLinearSize field is ignored and we calculate it ourselves
 			// https://msdn.microsoft.com/en-us/library/bb943991.aspx
@@ -209,7 +201,7 @@ namespace XNAssets.DDS
 			return pitch * rows;
 		}
 
-		internal static TextureContent Import(BinaryReader reader)
+		public static TextureContent Import(BinaryReader reader)
 		{
 			// Read signature ("DDS ")
 			var valid = reader.ReadByte() == 0x44;
@@ -333,7 +325,7 @@ namespace XNAssets.DDS
 			return output;
 		}
 
-		static void ByteFillAlpha(byte[] bytes)
+		public static void ByteFillAlpha(byte[] bytes)
 		{
 			for (int i = 0; i < bytes.Length; i += 4)
 			{
@@ -341,7 +333,7 @@ namespace XNAssets.DDS
 			}
 		}
 
-		static void ByteExpandAlpha(ref byte[] bytes)
+		public static void ByteExpandAlpha(ref byte[] bytes)
 		{
 			var rgba = new byte[bytes.Length + (bytes.Length / 3)];
 			int j = 0;
@@ -356,7 +348,7 @@ namespace XNAssets.DDS
 			bytes = rgba;
 		}
 
-		static void ByteSwapRGB(byte[] bytes)
+		public static void ByteSwapRGB(byte[] bytes)
 		{
 			for (int i = 0; i < bytes.Length; i += 3)
 			{
@@ -366,7 +358,7 @@ namespace XNAssets.DDS
 			}
 		}
 
-		static void ByteSwapRGBX(byte[] bytes)
+		public static void ByteSwapRGBX(byte[] bytes)
 		{
 			for (int i = 0; i < bytes.Length; i += 4)
 			{
@@ -376,7 +368,7 @@ namespace XNAssets.DDS
 			}
 		}
 
-		static void ByteSwapBGRA4444(byte[] bytes)
+		public static void ByteSwapBGRA4444(byte[] bytes)
 		{
 			for (int i = 0; i < bytes.Length; i += 2)
 			{
@@ -387,7 +379,7 @@ namespace XNAssets.DDS
 			}
 		}
 
-		static void ByteSwapBGRA5551(byte[] bytes)
+		public static void ByteSwapBGRA5551(byte[] bytes)
 		{
 			for (int i = 0; i < bytes.Length; i += 2)
 			{
@@ -398,7 +390,7 @@ namespace XNAssets.DDS
 			}
 		}
 
-		static void ByteSwapBGR565(byte[] bytes)
+		public static void ByteSwapBGR565(byte[] bytes)
 		{
 			for (int i = 0; i < bytes.Length; i += 2)
 			{
@@ -410,3 +402,5 @@ namespace XNAssets.DDS
 		}
 	}
 }
+
+#endif
