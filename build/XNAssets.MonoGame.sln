@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAssets.MonoGame", "..\src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAssets.FontStashSharp.MonoGame", "..\src\XNAssets.FontStashSharp\XNAssets.FontStashSharp.MonoGame.csproj", "{CAA3D274-403E-4CE8-9AFA-9B39C0AB1277}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAssets.Samples.DDSViewer.MonoGame.DesktopGL", "..\samples\XNAssets.Samples.DDSViewer\XNAssets.Samples.DDSViewer.MonoGame.DesktopGL.csproj", "{7F475A27-C0F4-49FD-7A7D-6A7BF8A250BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,17 @@ Global
 		{CAA3D274-403E-4CE8-9AFA-9B39C0AB1277}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAA3D274-403E-4CE8-9AFA-9B39C0AB1277}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAA3D274-403E-4CE8-9AFA-9B39C0AB1277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F475A27-C0F4-49FD-7A7D-6A7BF8A250BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F475A27-C0F4-49FD-7A7D-6A7BF8A250BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F475A27-C0F4-49FD-7A7D-6A7BF8A250BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F475A27-C0F4-49FD-7A7D-6A7BF8A250BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62BF129F-A4F8-4351-840C-5827F2843135} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7F475A27-C0F4-49FD-7A7D-6A7BF8A250BC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35ACDF4E-2CE2-46B1-A19F-35DC131069A1}

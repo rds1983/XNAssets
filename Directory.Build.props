@@ -15,7 +15,7 @@
     <AssetManagementBaseVersion>0.7.1</AssetManagementBaseVersion>
     <CyotekDrawingBitmapFontVersion>2.0.4</CyotekDrawingBitmapFontVersion>
     <MonoGameVersion>3.8.0.1641</MonoGameVersion>
-    <AppMonoGameVersion>3.8.4</AppMonoGameVersion>
+    <AppMonoGameVersion>3.8.4.1</AppMonoGameVersion>
     <StrideVersion>4.2.0.2067</StrideVersion>
     <DdsKtxSharpVersion>1.1.0.1</DdsKtxSharpVersion>
     <FontStashSharpVersion>1.5.1</FontStashSharpVersion>

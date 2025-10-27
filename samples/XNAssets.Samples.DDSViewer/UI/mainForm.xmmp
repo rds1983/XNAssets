@@ -1,0 +1,29 @@
+<Project>
+  <Project.ExportOptions Namespace="DdsKtxXna.Viewer.UI" Class="MainForm" OutputPath="D:\Projects\DdsKtxXna\DdsKtxXna.Viewer\UI" />
+  <VerticalStackPanel Spacing="8">
+    <HorizontalStackPanel Spacing="8">
+      <TextBox Readonly="True" Id="_textBoxPath" StackPanel.ProportionType="Fill" />
+      <Button Id="_buttonBrowse">
+        <Label Text="Browse..." />
+      </Button>
+      <ComboView Id="_comboCubePlane">
+        <Label Text="PositiveX" />
+        <Label Text="NegativeX" />
+        <Label Text="PositiveY" />
+        <Label Text="NegativeY" />
+        <Label Text="PositiveZ" />
+        <Label Text="NegativeX" />
+      </ComboView>
+    </HorizontalStackPanel>
+    <Panel StackPanel.ProportionType="Fill">
+      <Image Renderable="background.png" HorizontalAlignment="Center" VerticalAlignment="Center" Id="_image" />
+      <VerticalStackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Left="-8" Top="-8">
+        <Label Text="Type: 2D" Id="_labelType" />
+        <Label Text="Format: Color" Id="_labelFormat" />
+        <Label Text="Width: 1024" Id="_labelWidth" />
+        <Label Text="Height: 1024" Id="_labelHeight" />
+        <Label Text="Levels: 1" Id="_labelLevels" />
+      </VerticalStackPanel>
+    </Panel>
+  </VerticalStackPanel>
+</Project>

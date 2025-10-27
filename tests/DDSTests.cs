@@ -23,7 +23,8 @@ namespace XNAssets.Tests
 			Assert.AreEqual(levels, result.LevelCount);
 		}
 
-		[TestCase("MilkyWay.dds", SurfaceFormat.Dxt1, 128, 8)]
+		[TestCase("MilkyWay.dds", SurfaceFormat.Dxt1, 512, 1)]
+		[TestCase("SkyBox.dds", SurfaceFormat.Color, 512, 1)]
 		public void LoadTextureCubeFromDDS(string filename, SurfaceFormat format, int size, int levels)
 		{
 			var assetManager = Utility.CreateAssetManager();
