@@ -111,6 +111,7 @@ namespace XNAssets.Utility
 			switch (surfaceFormat)
 			{
 				case SurfaceFormat.Dxt1:
+#if MONOGAME
 				case SurfaceFormat.Dxt1SRgb:
 				case SurfaceFormat.Dxt1a:
 				case SurfaceFormat.RgbPvrtc2Bpp:
@@ -122,16 +123,19 @@ namespace XNAssets.Utility
 				case SurfaceFormat.Srgb8Etc2:
 				case SurfaceFormat.Rgb8A1Etc2:
 				case SurfaceFormat.Srgb8A1Etc2:
+#endif
 					// One texel in DXT1, PVRTC (2bpp and 4bpp) and ETC1 is a minimum 4x4 block (8x4 for PVRTC 2bpp), which is 8 bytes
 					return 8;
 				case SurfaceFormat.Dxt3:
-				case SurfaceFormat.Dxt3SRgb:
 				case SurfaceFormat.Dxt5:
+#if MONOGAME
+				case SurfaceFormat.Dxt3SRgb:
 				case SurfaceFormat.Dxt5SRgb:
 				case SurfaceFormat.RgbaAtcExplicitAlpha:
 				case SurfaceFormat.RgbaAtcInterpolatedAlpha:
 				case SurfaceFormat.Rgba8Etc2:
 				case SurfaceFormat.SRgb8A8Etc2:
+#endif
 					// One texel in DXT3 and DXT5 is a minimum 4x4 block, which is 16 bytes
 					return 16;
 				case SurfaceFormat.Alpha8:
@@ -143,16 +147,18 @@ namespace XNAssets.Utility
 				case SurfaceFormat.NormalizedByte2:
 					return 2;
 				case SurfaceFormat.Color:
-				case SurfaceFormat.ColorSRgb:
 				case SurfaceFormat.Single:
 				case SurfaceFormat.Rg32:
 				case SurfaceFormat.HalfVector2:
 				case SurfaceFormat.NormalizedByte4:
 				case SurfaceFormat.Rgba1010102:
+#if MONOGAME
+				case SurfaceFormat.ColorSRgb:
 				case SurfaceFormat.Bgra32:
 				case SurfaceFormat.Bgra32SRgb:
 				case SurfaceFormat.Bgr32:
 				case SurfaceFormat.Bgr32SRgb:
+#endif
 					return 4;
 				case SurfaceFormat.HalfVector4:
 				case SurfaceFormat.Rgba64:
@@ -165,5 +171,5 @@ namespace XNAssets.Utility
 			}
 		}
 #endif
-	}
-}
+			}
+		}
