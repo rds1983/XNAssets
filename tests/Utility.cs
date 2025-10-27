@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AssetManagementBase;
+using System;
 using System.IO;
 using System.Reflection;
 
@@ -15,6 +16,11 @@ namespace XNAssets.Tests
 				string path = Uri.UnescapeDataString(uri.Path);
 				return Path.GetDirectoryName(path);
 			}
+		}
+
+		public static AssetManager CreateAssetManager()
+		{
+			return AssetManager.CreateFileAssetManager(Path.Combine(ExecutingAssemblyDirectory, "Assets"));
 		}
 	}
 }

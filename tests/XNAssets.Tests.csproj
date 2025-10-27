@@ -6,9 +6,10 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <EmbeddedResource Include="Resources\**\*.*" />
-  </ItemGroup>  
-
+    <None Update="Assets\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.WindowsDX" Version="$(AppMonoGameVersion)" />
     <PackageReference Include="NUnit" Version="3.13.3" />
@@ -18,11 +19,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\src\XNAssets\XNAssets.MonoGame.csproj" />
-  </ItemGroup>  
-
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\LogoOnly_64px.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>  
 </Project>

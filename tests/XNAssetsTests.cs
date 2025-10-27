@@ -12,8 +12,6 @@ namespace XNAssets.Tests
 	{
 		private static readonly Assembly _assembly = typeof(XNAssetsTests).Assembly;
 
-		private static AssetManager CreateResourceAssetManager() => AssetManager.CreateResourceAssetManager(_assembly, "Resources");
-
 		private static void TestLoadImage(AssetManager assetManager)
 		{
 			string imageName = "LogoOnly_64px.png";
@@ -57,21 +55,21 @@ namespace XNAssets.Tests
 		[Test]
 		public void TestLoadImageResource()
 		{
-			var assetManager = CreateResourceAssetManager();
+			var assetManager = Utility.CreateAssetManager();
 			TestLoadImage(assetManager);
 		}
 
 		[Test]
 		public void TestLoadImageFile()
 		{
-			var assetManager = AssetManager.CreateFileAssetManager(Path.Combine(Utility.ExecutingAssemblyDirectory, "Resources"));
+			var assetManager = Utility.CreateAssetManager();
 			TestLoadImage(assetManager);
 		}
 
 		[Test]
 		public void TestLoadEffects()
 		{
-			var assetManager = CreateResourceAssetManager();
+			var assetManager = Utility.CreateAssetManager();
 
 			var effect = assetManager.LoadEffect(TestsEnvironment.GraphicsDevice, "DefaultEffect.efb");
 			Assert.AreEqual(effect.Parameters.Count, 5);
@@ -87,7 +85,7 @@ namespace XNAssets.Tests
 		[Test]
 		public void TestLoadSpriteFont()
 		{
-			var assetManager = CreateResourceAssetManager();
+			var assetManager = Utility.CreateAssetManager();
 			var font = assetManager.LoadSpriteFont(TestsEnvironment.GraphicsDevice, "arial64.fnt");
 			Assert.AreEqual(font.Characters.Count, 191);
 		}
@@ -95,7 +93,7 @@ namespace XNAssets.Tests
 		[Test]
 		public void TestColorKey()
 		{
-			var assetManager = CreateResourceAssetManager();
+			var assetManager = Utility.CreateAssetManager();
 
 			string imageName = "HUD_Aiming.png";
 

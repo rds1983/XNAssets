@@ -56,7 +56,7 @@ namespace AssetManagementBase
 				// TODO: Apply loading settings
 				using (var stream = manager.Open(assetName))
 				{
-					return DdsKtxLoader.FromStream((GraphicsDevice)tag, stream);
+					return DdsLoader.FromStream((GraphicsDevice)tag, stream);
 				}
 			}
 #endif
@@ -78,7 +78,7 @@ namespace AssetManagementBase
 		{
 			using (var stream = manager.Open(assetName))
 			{
-				return (TextureCube)DdsKtxLoader.FromStream((GraphicsDevice)tag, stream);
+				return (TextureCube)DdsLoader.FromStream((GraphicsDevice)tag, stream);
 			}
 		};
 
