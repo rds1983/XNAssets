@@ -11,6 +11,7 @@ namespace XNAssets.Tests
 		[TestCase("dirt.dds", SurfaceFormat.Color, 512, 512, 10)]
 		[TestCase("grass.dds", SurfaceFormat.Color, 1024, 1024, 11)]
 		[TestCase("rock.dds", SurfaceFormat.Color, 1024, 1024, 11)]
+		[TestCase("WaterNoise.dds", SurfaceFormat.Dxt1, 256, 256, 1)]
 		public void LoadTexture2DFromDDS(string filename, SurfaceFormat format, int width, int height, int levels)
 		{
 			var assetManager = Utility.CreateAssetManager();

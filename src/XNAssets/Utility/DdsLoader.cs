@@ -26,7 +26,7 @@ namespace XNAssets.Utility
 					{
 						// Only one face
 						var face = info.Faces[0];
-						Texture2D texture2D = new Texture2D(device, info.Width, info.Height, face.Count > 0, info.Format);
+						Texture2D texture2D = new Texture2D(device, info.Width, info.Height, face.Count > 1, info.Format);
 						for (var i = 0; i < face.Count; ++i)
 						{
 							texture2D.SetData(i, null, face[i].Data, 0, face[i].Data.Length);
