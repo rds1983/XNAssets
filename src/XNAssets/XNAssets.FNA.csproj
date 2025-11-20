@@ -11,7 +11,6 @@
     <PackageReference Include="AssetManagementBase" Version="$(AssetManagementBaseVersion)" />
     <PackageReference Include="StbImageSharp" Version="$(StbImageSharpVersion)" />
     <PackageReference Include="Cyotek.Drawing.BitmapFont" Version="$(CyotekDrawingBitmapFontVersion)" />
-    <PackageReference Include="DdsKtxSharp" Version="$(DdsKtxSharpVersion)" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\FNA\FNA.csproj" />
