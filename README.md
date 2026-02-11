@@ -4,7 +4,7 @@
 XNAssets is the asset management library for Monogame/FNA. Unlike Content Pipeline, it loads raw assets.
 
 ## Adding Reference
-DigitalRiseModel consists of following assemblies(click on the name for MonoGame nuget link):
+XNAssets consists of following assemblies(click on the name for MonoGame nuget link):
 Name|Description
 ----|-----------
 [XNAssets](https://www.nuget.org/packages/XNAssets.Monogame/)|Base assets types(textures, effects, etc)
