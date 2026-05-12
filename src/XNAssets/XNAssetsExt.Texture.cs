@@ -14,21 +14,56 @@ using Texture2D = Stride.Graphics.Texture;
 
 namespace AssetManagementBase
 {
+	/// <summary>
+	/// Provides extension methods for loading texture assets.
+	/// </summary>
 	public static partial class XNAssetsExt
 	{
+		/// <summary>
+		/// Contains settings for texture loading including alpha premultiplication and color key options.
+		/// </summary>
 		private class TextureLoadingSettings : IAssetSettings
 		{
+			/// <summary>
+			/// The default color key (Magenta).
+			/// </summary>
 			public static readonly Color DefaultColorKey = Color.Magenta;
 
+			/// <summary>
+			/// Preset settings for no premultiplication and no color key.
+			/// </summary>
 			public static readonly TextureLoadingSettings NoPremultiplyNoColorKey = new TextureLoadingSettings(false, null);
+			/// <summary>
+			/// Preset settings for premultiplication and no color key.
+			/// </summary>
 			public static readonly TextureLoadingSettings PremultiplyNoColorKey = new TextureLoadingSettings(true, null);
+			/// <summary>
+			/// Preset settings for no premultiplication with default color key.
+			/// </summary>
 			public static readonly TextureLoadingSettings NoPremultiplyDefaultColorKey = new TextureLoadingSettings(false, DefaultColorKey);
+			/// <summary>
+			/// Preset settings for premultiplication with default color key.
+			/// </summary>
 			public static readonly TextureLoadingSettings PremultiplyDefaultColorKey = new TextureLoadingSettings(true, DefaultColorKey);
 
+			/// <summary>
+			/// Gets whether alpha should be premultiplied.
+			/// </summary>
 			public bool PremultiplyAlpha { get; }
+			/// <summary>
+			/// Gets the color key for transparency, or null if no color key is used.
+			/// </summary>
 			public Color? ColorKey { get; }
+			/// <summary>
+			/// Gets the cache key for this settings configuration.
+			/// </summary>
 			public string CacheKey { get; }
 
+			/// <summary>
+			/// Initializes a new instance of the TextureLoadingSettings class.
+			/// </summary>
+			/// <param name="premultiplyAlpha">Whether to premultiply the alpha channel.</param>
+			/// <param name="colorKey">The color key for transparency, or null for no color key.</param>
 			public TextureLoadingSettings(bool premultiplyAlpha, Color? colorKey)
 			{
 				PremultiplyAlpha = premultiplyAlpha;
@@ -45,6 +80,10 @@ namespace AssetManagementBase
 				CacheKey = sb.ToString();
 			}
 
+			/// <summary>
+			/// Builds the cache key for this settings configuration.
+			/// </summary>
+			/// <returns>The cache key string.</returns>
 			public string BuildKey() => CacheKey;
 		}
 
@@ -82,17 +121,40 @@ namespace AssetManagementBase
 			}
 		};
 
+		/// <summary>
+		/// Loads a cube texture from a DDS file.
+		/// </summary>
+		/// <param name="assetManager">The AssetManager instance.</param>
+		/// <param name="graphicsDevice">The GraphicsDevice to create the texture with.</param>
+		/// <param name="assetName">The name or path of the cube texture asset.</param>
+		/// <returns>The loaded TextureCube object.</returns>
 		public static TextureCube LoadTextureCube(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName)
 		{
 			return assetManager.UseLoader(_textureCubeLoader, assetName, tag: graphicsDevice);
 		}
 
+		/// <summary>
+		/// Loads a texture asset.
+		/// </summary>
+		/// <param name="assetManager">The AssetManager instance.</param>
+		/// <param name="graphicsDevice">The GraphicsDevice to create the texture with.</param>
+		/// <param name="assetName">The name or path of the texture asset.</param>
+		/// <returns>The loaded Texture object.</returns>
 		public static Texture LoadTexture(this AssetManager assetManager, GraphicsDevice graphicsDevice, string assetName)
 		{
 			return assetManager.UseLoader(_textureLoader, assetName, TextureLoadingSettings.NoPremultiplyNoColorKey, graphicsDevice);
 		}
 #endif
 
+		/// <summary>
+		/// Loads a 2D texture with optional alpha premultiplication and color key support.
+		/// </summary>
+		/// <param name="assetManager">The AssetManager instance.</param>
+		/// <param name="graphicsDevice">The GraphicsDevice to create the texture with.</param>
+		/// <param name="assetName">The name or path of the texture asset.</param>
+		/// <param name="premultiplyAlpha">Whether to premultiply the alpha channel. Defaults to false.</param>
+		/// <param name="colorKey">The color to treat as transparent, or null for no color key. Defaults to null.</param>
+		/// <returns>The loaded Texture2D object.</returns>
 		public static Texture2D LoadTexture2D(this AssetManager assetManager, GraphicsDevice graphicsDevice,
 			string assetName, bool premultiplyAlpha = false, Color? colorKey = null)
 		{

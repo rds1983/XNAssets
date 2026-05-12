@@ -7,6 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace AssetManagementBase
 {
+	/// <summary>
+	/// Provides extension methods for loading various asset types through an AssetManager.
+	/// </summary>
 	partial class XNAssetsExt
 	{
 		private static AssetLoader<Effect> _effectLoader = (manager, assetName, settings, tag) =>
@@ -14,11 +17,19 @@ namespace AssetManagementBase
 			var data = manager.ReadAsByteArray(assetName);
 			var graphicsDevice = (GraphicsDevice)tag;
 			return new Effect(graphicsDevice, data)
-			{ 
+			{
 				Name = assetName
 			};
 		};
 
+		/// <summary>
+		/// Loads an Effect asset from the asset manager with optional shader defines.
+		/// </summary>
+		/// <param name="assetManager">The AssetManager instance.</param>
+		/// <param name="graphicsDevice">The GraphicsDevice to create the Effect with.</param>
+		/// <param name="name">The name or path of the effect asset.</param>
+		/// <param name="defines">Optional dictionary of preprocessor defines for shader compilation.</param>
+		/// <returns>The loaded Effect object.</returns>
 		public static Effect LoadEffect(this AssetManager assetManager, GraphicsDevice graphicsDevice, string name, Dictionary<string, string> defines = null)
 		{
 			var key = new StringBuilder();
