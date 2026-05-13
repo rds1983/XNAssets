@@ -6,6 +6,7 @@
     <DefineConstants>$(DefineConstants);STRIDE</DefineConstants>
     <OutputPath>bin\Stride\$(Configuration)</OutputPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>	
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">

@@ -6,6 +6,7 @@
     <AssemblyName>XNAssets.FontStashSharp.Stride</AssemblyName>
     <DefineConstants>$(DefineConstants);STRIDE</DefineConstants>
     <OutputPath>bin\Stride\$(Configuration)</OutputPath>  
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
