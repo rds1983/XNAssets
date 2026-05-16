@@ -37,16 +37,16 @@ The naming convention follows these rules:
 
 [efscriptgen](https://github.com/rds1983/efscriptgen) is a tool that automatically generates batch scripts to compile shader source files into effect binaries with various define combinations. This integrates seamlessly with XNAssets:
 
-1. **Generate compiled effects**: Use efscriptgen to compile your .fx shader files with different define combinations, producing .fxb files with define combinations encoded in their names.
+1. **Generate compiled effects**: Use efscriptgen to compile your .fx shader files with different define combinations, producing compiled effects with define combinations encoded in their names.
 
 2. **Load with XNAssets**: When you load an effect with specific defines, XNAssets automatically constructs the correct filename and loads the pre-compiled effect file.
 
 Example workflow:
 ```c#
 // Your shader compilation (handled by efscriptgen):
-// effect.fx -> effect.fxb
-// effect.fx with /D USE_NORMAL_MAP=1 -> effect_USE_NORMAL_MAP.fxb
-// effect.fx with /D USE_NORMAL_MAP=1 /D QUALITY_LEVEL=2 -> effect_QUALITY_LEVEL_2_USE_NORMAL_MAP.fxb
+// effect.fx -> effect.efb
+// effect.fx with /D USE_NORMAL_MAP=1 -> effect_USE_NORMAL_MAP.efb
+// effect.fx with /D USE_NORMAL_MAP=1 /D QUALITY_LEVEL=2 -> effect_QUALITY_LEVEL_2_USE_NORMAL_MAP.efb
 
 // Loading in your game code:
 var defines = new Dictionary<string, string>
