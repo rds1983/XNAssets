@@ -54,71 +54,26 @@ SpriteFont|LoadSpriteFont|Font in AngelCode's BMFont .fnt format
 SoundEffect|LoadSoundEffect|SoundEffect in WAV format
 Effect|LoadEffect|Effect in binary form
 
-## Loading Effects with Shader Defines
+## Asset Path Resolution
 
-XNAssets provides support for loading Effects with shader preprocessor defines. This allows you to maintain a single shader source file and generate multiple compiled effect files for different feature combinations.
+XNAssets supports flexible path resolution to make asset references easy and relative-path friendly:
 
-### Basic Usage
+1. **Relative Paths** (e.g., `"textures/character.png"`): Resolved relative to the current asset's folder context. This enables recursive loading where nested assets can reference sibling assets.
 
-To load an effect, use the `LoadEffect` method:
-```c#
-Effect effect = assetManager.LoadEffect(graphicsDevice, "effects/myshader.fxb");
-```
+2. **Rooted Paths from Base** (e.g., `"/textures/character.png"`): Always resolved from the base asset folder, regardless of current context.
 
-### Using Shader Defines
+3. **Explicit File System Paths** (e.g., `"@C:\Assets\textures\character.png"`): Start with `@` to use absolute file system paths.
 
-You can specify shader defines as a dictionary when loading an effect:
-```c#
-var defines = new Dictionary<string, string>
-{
-    { "USE_NORMAL_MAP", "1" },
-    { "QUALITY_LEVEL", "2" }
-};
+4. **Path Normalization**: 
+   - Backslashes are normalized to forward slashes
+   - `..` sequences are resolved to navigate to parent folders
+   - All paths are processed to their canonical form
 
-Effect effect = assetManager.LoadEffect(graphicsDevice, "effects/myshader.fxb", defines);
-```
-
-When defines are provided, XNAssets automatically encodes them into the asset key used for caching. The defines are expected to be part of the compiled effect file name. For example, if you provide defines like `USE_NORMAL_MAP=1` and `QUALITY_LEVEL=2`, the asset loader will look for a file named something like:
-```
-effects/myshader_USE_NORMAL_MAP_QUALITY_LEVEL_2.fxb
-```
-
-The naming convention follows these rules:
-- Defines are appended to the base filename with underscores
-- Define keys are sorted alphabetically
-- For defines with value `"1"`, only the key is appended
-- For defines with other values, both key and value are appended separated by an underscore
-
-### Integration with efscriptgen
-
-[efscriptgen](https://github.com/rds1983/efscriptgen) is a tool that automatically generates batch scripts to compile shader source files into effect binaries with various define combinations. This integrates seamlessly with XNAssets:
-
-1. **Generate compiled effects**: Use efscriptgen to compile your .fx shader files with different define combinations, producing .fxb files with encoded define combinations in their names.
-
-2. **Load with XNAssets**: When you load an effect with specific defines, XNAssets automatically constructs the correct filename and loads the pre-compiled effect file.
-
-Example workflow:
-```c#
-// Your shader compilation (handled by efscriptgen):
-// effect.fx -> effect.fxb
-// effect.fx with /D USE_NORMAL_MAP=1 -> effect_USE_NORMAL_MAP.fxb
-// effect.fx with /D USE_NORMAL_MAP=1 /D QUALITY_LEVEL=2 -> effect_QUALITY_LEVEL_2_USE_NORMAL_MAP.fxb
-
-// Loading in your game code:
-var defines = new Dictionary<string, string>
-{
-    { "USE_NORMAL_MAP", "1" },
-    { "QUALITY_LEVEL", "2" }
-};
-Effect effect = assetManager.LoadEffect(graphicsDevice, "effects/effect.fxb", defines);
-// This will load: effects/effect_QUALITY_LEVEL_2_USE_NORMAL_MAP.fxb
-```
-
-This approach allows you to:
-- Maintain a single shader source file
-- Generate multiple optimized variants with different feature sets
-- Load the correct variant based on runtime conditions (quality settings, available hardware features, etc.)
-- Benefit from caching to avoid reloading the same effect variant multiple times
+**Example path resolutions:**
+- `assetManager.LoadTexture2D(graphicsDevice, "sprites/player.png")` — loads relative to current folder
+- `assetManager.LoadTexture2D(graphicsDevice, "/shared/effects.fxb")` — loads from base folder
+- `assetManager.LoadTexture2D(graphicsDevice, "../common/ui.png")` — navigates up one level
+- `assetManager.LoadTexture2D(graphicsDevice, "@C:\Assets\external\sprite.png")` — loads from absolute path
 
 ## FontStashSharp Support
 After referencing XNAssets.FontStashSharp, you can load FontSystem using the following code:
