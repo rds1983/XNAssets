@@ -75,6 +75,10 @@ XNAssets supports flexible path resolution for easy, relative-path-friendly asse
 - `assetManager.LoadTexture2D(graphicsDevice, "../common/ui.png")` — navigates up one level
 - `assetManager.LoadTexture2D(graphicsDevice, "@C:\Assets\external\sprite.png")` — loads from absolute path
 
+## Loading Effects with Shader Defines
+
+For detailed information on loading effects with shader preprocessor defines, see [LoadingEffects.md](LoadingEffects.md).
+
 ## FontStashSharp Support
 After referencing XNAssets.FontStashSharp, you can load FontSystem using the following code:
 ```c#
