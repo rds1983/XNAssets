@@ -2,13 +2,6 @@
 
 XNAssets provides support for loading Effects with shader preprocessor defines. This allows you to maintain a single shader source file and generate multiple compiled effect files for different feature combinations.
 
-### Basic Usage
-
-To load an effect, use the `LoadEffect` method:
-```c#
-Effect effect = assetManager.LoadEffect(graphicsDevice, "effects/myshader.fxb");
-```
-
 ### Using Shader Defines
 
 You can specify shader defines as a dictionary when loading an effect:
