@@ -56,7 +56,7 @@ Effect|LoadEffect|Effect in binary form
 
 XNAssets supports flexible path resolution for easy, relative-path-friendly asset references:
 
-1. **Relative Paths** (e.g., `"textures/character.png"`): Resolved relative to the current asset's folder context. This enables recursive loading where nested assets can reference sibling assets.
+1. **Relative Paths** (e.g., `"textures/character.png"`): Resolved relative to the current asset's folder context. This enables recursive loading where nested assets can reference sibling assets(i.e. .fnt can reference the image with the font glyphs atlas).
 
 2. **Rooted Paths from Base** (e.g., `"/textures/character.png"`): These are always resolved from the base asset folder, regardless of current context.
 
