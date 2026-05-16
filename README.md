@@ -10,7 +10,7 @@ Name|Description
 [XNAssets](https://www.nuget.org/packages/XNAssets.Monogame/)|Base asset types (textures, effects, etc)
 [XNAssets.FontStashSharp](https://www.nuget.org/packages/XNAssets.FontStashSharp.Monogame/)|[FontStashSharp](https://github.com/FontStashSharp/FontStashSharp) support
 
-See [this](https://github.com/DigitalRiseEngine/DigitalRiseModel/wiki/Adding-Reference-For-FNA-Project) on how to reference the library in the FNA project.
+See [this guide](https://github.com/DigitalRiseEngine/DigitalRiseModel/wiki/Adding-Reference-For-FNA-Project) on how to reference the library in the FNA project.
 
 ## Outputting Asset Loading Logging to Console
 ```c#
@@ -35,11 +35,11 @@ AssetManager assetManager = AssetManager.CreateResourceAssetManager(_assembly, "
 ```
 
 ## Loading Assets
-After AssetManager is created, it can be used in the following way to load SpriteFont:
+After AssetManager is created, you can load a SpriteFont as follows:
 ```c#
     SpriteFont font = assetManager.LoadSpriteFont(graphicsDevice, "fonts/arial64.fnt");
 ```
-Or in the following way to load Texture2D:
+Or load a Texture2D like this:
 ```c#
     Texture2D texture = assetManager.LoadTexture2D(graphicsDevice, "images/LogoOnly_64px.png");
 ```
@@ -56,20 +56,20 @@ Effect|LoadEffect|Effect in binary form
 
 ## Asset Path Resolution
 
-XNAssets supports flexible path resolution to make asset references easy and relative-path friendly:
+XNAssets supports flexible path resolution for easy, relative-path-friendly asset references:
 
 1. **Relative Paths** (e.g., `"textures/character.png"`): Resolved relative to the current asset's folder context. This enables recursive loading where nested assets can reference sibling assets.
 
-2. **Rooted Paths from Base** (e.g., `"/textures/character.png"`): Always resolved from the base asset folder, regardless of current context.
+2. **Rooted Paths from Base** (e.g., `"/textures/character.png"`): These are always resolved from the base asset folder, regardless of current context.
 
 3. **Explicit File System Paths** (e.g., `"@C:\Assets\textures\character.png"`): Start with `@` to use absolute file system paths.
 
 4. **Path Normalization**: 
    - Backslashes are normalized to forward slashes
-   - `..` sequences are resolved to navigate to parent folders
+   - `..` sequences resolve to parent folders
    - All paths are processed to their canonical form
 
-**Example path resolutions:**
+**Examples:**
 - `assetManager.LoadTexture2D(graphicsDevice, "sprites/player.png")` — loads relative to current folder
 - `assetManager.LoadTexture2D(graphicsDevice, "/shared/effects.fxb")` — loads from base folder
 - `assetManager.LoadTexture2D(graphicsDevice, "../common/ui.png")` — navigates up one level
@@ -81,7 +81,7 @@ After referencing XNAssets.FontStashSharp, you can load FontSystem using the fol
 FontSystem fs = assetManager.LoadFontSystem("arial.ttf");
 ```
 
-Or StaticSpriteFont through:
+Or load StaticSpriteFont with:
 ```c#
 StaticSpriteFont ssf = assetManager.LoadStaticSpriteFont(graphicsDevice, "arial.fnt");
 ```
