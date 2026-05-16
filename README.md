@@ -10,8 +10,6 @@ Name|Description
 [XNAssets](https://www.nuget.org/packages/XNAssets.Monogame/)|Base asset types (textures, effects, etc)
 [XNAssets.FontStashSharp](https://www.nuget.org/packages/XNAssets.FontStashSharp.Monogame/)|[FontStashSharp](https://github.com/FontStashSharp/FontStashSharp) support
 
-See [this guide](https://github.com/DigitalRiseEngine/DigitalRiseModel/wiki/Adding-Reference-For-FNA-Project) on how to reference the library in the FNA project.
-
 ## Outputting Asset Loading Logging to Console
 ```c#
 AMBConfiguration.Logger = Console.WriteLine;
