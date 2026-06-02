@@ -6,7 +6,7 @@
     <PackageProjectUrl>https://github.com/rds1983/XNAssets</PackageProjectUrl>
     <Description>Alternative to MonoGame Content Pipeline that loads raw assets</Description>
     <RootNamespace>XNAssets</RootNamespace>
-    <Version>0.8.4</Version>
+    <Version>0.8.5</Version>
     <MonoGameTargetFramework>netstandard2.0</MonoGameTargetFramework>
     <AppMonoGameTargetFramework>net8.0</AppMonoGameTargetFramework>
     <FNATargetFramework>net8.0</FNATargetFramework>
@@ -17,6 +17,6 @@
     <MonoGameVersion>3.8.0.1641</MonoGameVersion>
     <AppMonoGameVersion>3.8.4.1</AppMonoGameVersion>
     <StrideVersion>4.2.0.2067</StrideVersion>
-    <FontStashSharpVersion>1.5.2</FontStashSharpVersion>
+    <FontStashSharpVersion>1.5.6</FontStashSharpVersion>
   </PropertyGroup>
 </Project>
