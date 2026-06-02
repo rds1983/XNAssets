@@ -17,12 +17,13 @@ namespace XNAssets.Utility
 	internal static class Texture2DExtensions
 	{
 		/// <summary>
-		/// Creates a Texture2D from Stream and optionally premultiplies alpha
+		/// Creates a Texture2D from a stream and optionally premultiplies alpha or applies color key transparency.
 		/// </summary>
-		/// <param name="graphicsDevice"></param>
-		/// <param name="stream"></param>
-		/// <param name="premultiplyAlpha"></param>
-		/// <returns></returns>
+		/// <param name="graphicsDevice">The graphics device to create the texture with.</param>
+		/// <param name="stream">The stream containing image data.</param>
+		/// <param name="premultiplyAlpha">Whether to premultiply the alpha channel.</param>
+		/// <param name="colorKey">Optional color to treat as transparent.</param>
+		/// <returns>A Texture2D created from the stream data.</returns>
 		public static unsafe Texture2D FromStream(GraphicsDevice graphicsDevice, Stream stream, bool premultiplyAlpha, Color? colorKey)
 		{
 			byte[] bytes;
