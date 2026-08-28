@@ -25,7 +25,7 @@ Creating AssetManager that loads resources:
 ```c#
 AssetManager assetManager = AssetManager.CreateResourceAssetManager(_assembly, "Resources");
 ```
-If _assembly's name is "Assembly.Name" then the above code will create AssetManager that loads resources with prefix "Assembly.Name.Prefix.".
+If _assembly's name is "Assembly.Name" then the above code will create AssetManager that loads resources with prefix "Assembly.Name.Resources.".
 
 If you don't want the assembly's name prepended to the prefix, then pass 'false' as the third parameter when calling CreateResourceAssetManager. For example:
 ```c#
