@@ -13,7 +13,9 @@ namespace AssetManagementBase
 		{
 			using (var stream = manager.Open(assetName))
 			{
-				return SoundEffect.FromStream(stream);
+				var result = SoundEffect.FromStream(stream);
+				result.Name = assetName;
+				return result;
 			}
 		};
 

@@ -95,7 +95,10 @@ namespace AssetManagementBase
 				// TODO: Apply loading settings
 				using (var stream = manager.Open(assetName))
 				{
-					return DdsLoader.FromStream((GraphicsDevice)tag, stream);
+					var result = DdsLoader.FromStream((GraphicsDevice)tag, stream);
+					result.Name = assetName;
+
+					return result;
 				}
 			}
 #endif
@@ -108,7 +111,10 @@ namespace AssetManagementBase
 
 			using (var stream = manager.Open(assetName))
 			{
-				return Texture2DExtensions.FromStream((GraphicsDevice)tag, stream, textureLoadingSettings.PremultiplyAlpha, textureLoadingSettings.ColorKey);
+				var result = Texture2DExtensions.FromStream((GraphicsDevice)tag, stream, textureLoadingSettings.PremultiplyAlpha, textureLoadingSettings.ColorKey);
+				result.Name = assetName;
+
+				return result;
 			}
 		};
 
