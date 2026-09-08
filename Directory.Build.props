@@ -10,7 +10,7 @@
     <MonoGameTargetFramework>netstandard2.0</MonoGameTargetFramework>
     <AppMonoGameTargetFramework>net8.0</AppMonoGameTargetFramework>
     <FNATargetFramework>net8.0</FNATargetFramework>
-    <StrideTargetFramework>net8.0</StrideTargetFramework>
+    <StrideTargetFramework>net10.0</StrideTargetFramework>
     <StbImageSharpVersion>2.30.15</StbImageSharpVersion>
     <AssetManagementBaseVersion>0.7.3</AssetManagementBaseVersion>
     <CyotekDrawingBitmapFontVersion>2.0.4</CyotekDrawingBitmapFontVersion>
