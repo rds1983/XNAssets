@@ -37,7 +37,7 @@ namespace AssetManagementBase
 			/// <summary>
 			/// Gets or sets the mode used to rasterize glyph bitmaps.
 			/// </summary>
-			public FontRasterizationMode FontRasterizationMode { get; set; }
+			public FontRasterizationMode? FontRasterizationMode { get; set; }
 
 			/// <summary>
 			/// Builds the cache key for this settings configuration.
@@ -55,9 +55,11 @@ namespace AssetManagementBase
 			{
 				fontSystemSettings.ExistingTexture = fontSystemLoadingSettings.ExistingTexture;
 				fontSystemSettings.ExistingTextureUsedSpace = fontSystemLoadingSettings.ExistingTextureUsedSpace;
-				fontSystemSettings.FontRasterizationMode = fontSystemLoadingSettings.FontRasterizationMode;
+				if (fontSystemLoadingSettings.FontRasterizationMode != null)
+				{
+					fontSystemSettings.FontRasterizationMode = fontSystemLoadingSettings.FontRasterizationMode.Value;
+				}
 			}
-			;
 
 			var fontSystem = new FontSystem(fontSystemSettings);
 			var data = manager.ReadAsByteArray(assetName);
@@ -96,12 +98,12 @@ namespace AssetManagementBase
 		/// <param name="additionalFonts">Optional array of additional font files to load into the system.</param>
 		/// <param name="existingTexture">Optional existing texture to use for the font atlas.</param>
 		/// <param name="existingTextureUsedSpace">The region in the existing texture that is already in use, if provided.</param>
-		/// <param name="fontRasterizationMode">The mode used to rasterize glyph bitmaps.</param>
+		/// <param name="fontRasterizationMode">The optional mode used to rasterize glyph bitmaps. If not set, FontSystemDefaults.FontRasterizationMode is used.</param>
 		/// <returns>The loaded FontSystem object.</returns>
-		public static FontSystem LoadFontSystem(this AssetManager assetManager, string assetName, string[] additionalFonts = null, Texture2D existingTexture = null, Rectangle existingTextureUsedSpace = default(Rectangle), FontRasterizationMode fontRasterizationMode = FontRasterizationMode.Standard)
+		public static FontSystem LoadFontSystem(this AssetManager assetManager, string assetName, string[] additionalFonts = null, Texture2D existingTexture = null, Rectangle existingTextureUsedSpace = default(Rectangle), FontRasterizationMode? fontRasterizationMode = null)
 		{
 			FontSystemLoadingSettings settings = null;
-			if (additionalFonts != null || existingTexture != null || fontRasterizationMode != FontRasterizationMode.Standard)
+			if (additionalFonts != null || existingTexture != null || fontRasterizationMode != null)
 			{
 				settings = new FontSystemLoadingSettings
 				{
