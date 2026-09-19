@@ -34,6 +34,10 @@ namespace AssetManagementBase
 			/// Gets or sets additional font files to load.
 			/// </summary>
 			public string[] AdditionalFonts { get; set; }
+			/// <summary>
+			/// Gets or sets the mode used to rasterize glyph bitmaps.
+			/// </summary>
+			public FontRasterizationMode FontRasterizationMode { get; set; }
 
 			/// <summary>
 			/// Builds the cache key for this settings configuration.
@@ -51,6 +55,7 @@ namespace AssetManagementBase
 			{
 				fontSystemSettings.ExistingTexture = fontSystemLoadingSettings.ExistingTexture;
 				fontSystemSettings.ExistingTextureUsedSpace = fontSystemLoadingSettings.ExistingTextureUsedSpace;
+				fontSystemSettings.FontRasterizationMode = fontSystemLoadingSettings.FontRasterizationMode;
 			}
 			;
 
@@ -91,17 +96,19 @@ namespace AssetManagementBase
 		/// <param name="additionalFonts">Optional array of additional font files to load into the system.</param>
 		/// <param name="existingTexture">Optional existing texture to use for the font atlas.</param>
 		/// <param name="existingTextureUsedSpace">The region in the existing texture that is already in use, if provided.</param>
+		/// <param name="fontRasterizationMode">The mode used to rasterize glyph bitmaps.</param>
 		/// <returns>The loaded FontSystem object.</returns>
-		public static FontSystem LoadFontSystem(this AssetManager assetManager, string assetName, string[] additionalFonts = null, Texture2D existingTexture = null, Rectangle existingTextureUsedSpace = default(Rectangle))
+		public static FontSystem LoadFontSystem(this AssetManager assetManager, string assetName, string[] additionalFonts = null, Texture2D existingTexture = null, Rectangle existingTextureUsedSpace = default(Rectangle), FontRasterizationMode fontRasterizationMode = FontRasterizationMode.Standard)
 		{
 			FontSystemLoadingSettings settings = null;
-			if (additionalFonts != null || existingTexture != null)
+			if (additionalFonts != null || existingTexture != null || fontRasterizationMode != FontRasterizationMode.Standard)
 			{
 				settings = new FontSystemLoadingSettings
 				{
 					AdditionalFonts = additionalFonts,
 					ExistingTexture = existingTexture,
-					ExistingTextureUsedSpace = existingTextureUsedSpace
+					ExistingTextureUsedSpace = existingTextureUsedSpace,
+					FontRasterizationMode = fontRasterizationMode
 				};
 			}
 
